@@ -2,4 +2,6 @@
 
 ## Results
 
-Explicit counterexamples are obtained on $c_0$ and standard $\ell^1$, showing that the sum of a maximally monotone operator with a positive rank-one maximally monotone operator need not remain maximally monotone.
+Explicit counterexamples are obtained on $c_0$ and standard $\ell^1$.
+
+A general construction theorem provides an abstract mechanism for constructing maximally monotone operators whose sum with a positive rank-one operator is not maximally monotone.

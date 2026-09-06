@@ -1,0 +1,330 @@
+% Compile with pdfLaTeX or XeLaTeX.
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[1]
+\title{General construction theorem}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+We give a general construction theorem and a concrete realization on $c_0$ producing two maximally monotone operators $A,P_g:X\rightrightarrows X^*$ such that
+\[
+\operatorname{dom}A\cap\operatorname{int}\operatorname{dom}P_g\ne\varnothing,
+\qquad A+P_g\text{ is not maximally monotone}.
+\]
+All duals are continuous duals, and interiors are taken in the original norm topology. Thus the construction disproves the assertion that the interior-domain condition alone guarantees maximal monotonicity of the sum on every real Banach space.
+
+\section{Monotone polar and the rank-one operator}
+
+Let $X$ be a real Banach space and let $X^*$ be its continuous dual. Write $\langle x,a\rangle=a(x)$ for $x\in X$ and $a\in X^*$. For $T:X\rightrightarrows X^*$, write $\operatorname{gra}T=\{(x,a):a\in Tx\}$ and $\operatorname{dom}T=\{x:Tx\ne\varnothing\}$. The pointwise sum is $(T+U)x=\{a+b:a\in Tx,\ b\in Ux\}$. A graph $G\subset X\times X^*$ is monotone if $\langle x-y,a-b\rangle\ge0$ for all $(x,a),(y,b)\in G$, and maximally monotone if it is monotone and has no proper monotone extension in $X\times X^*$. Its monotone polar is
+\[
+G^\mu=\{(z,p)\in X\times X^*:
+ \langle z-x,p-a\rangle\ge0\quad\forall(x,a)\in G\}.
+\tag{Q0}
+\]
+A monotone graph is maximally monotone if and only if $G=G^\mu$: a point of $G^\mu\setminus G$ can be adjoined while preserving monotonicity, and every point in a monotone extension belongs to $G^\mu$.
+For a nonempty operator $T$ with $0\notin\operatorname{dom}T$, define
+\[
+\mathcal V(T)=\sup_{(x,a)\in\operatorname{gra}T}
+\frac{\max\{0,-\langle x,a\rangle\}}{\|x\|}.
+\]
+For $g\in X^*$, put $P_gx=\langle x,g\rangle g$.
+
+For clarity $P_g$ itself is maximally monotone without a sum theorem. It is bounded, full-domain, and monotone. A polar query $(z,p)$, tested at $z+sv$, gives
+\[
+-s\langle v,p-P_gz\rangle+s^2\langle v,g\rangle^2\ge0
+\qquad(s\in\mathbb R).
+\]
+A nonzero linear coefficient is contradicted by a sufficiently small $s$ of its opposite sign, therefore $p=P_gz$. This also covers $g=0$.
+
+\section{General construction theorem}
+
+Let $H_0$ be a real Hilbert space and let $H=\mathbb R\oplus H_0$ denote $\mathbb R\times H_0$ with inner product $((s,u),(t,v))_H=st+(u,v)_{H_0}$ and norm $\|(s,u)\|_H^2=s^2+\|u\|_{H_0}^2$. We use the following hypotheses.
+
+\textbf{H1 (algebra, full types, boundedness).} $X$ is a real Banach space, $E:X^*\to X$ and $M:X^*\to H$ are bounded linear maps, $g\in X^*$ is nonzero, $Mg=0$, and for all $a,c$ in the full $X^*$,
+\[
+\langle Ea,c\rangle+\langle Ec,a\rangle=2(Ma,Mc)_H.
+\tag{H1}
+\]
+Put $h=Eg$, $r(a)=\langle h,a\rangle$, and $La=-Ea+r(a)h$. These are actual $X$-valued maps and a continuous scalar functional on $X^*$, not bidual substitutes.
+
+\textbf{H2 (exact primal annihilator).} With $K=\ker M\cap\ker r$,
+\[
+\{x\in X:\langle x,k\rangle=0\ \forall k\in K\}=\mathbb Rh.
+\tag{H2}
+\]
+The annihilator is taken in $X$, not $X^{**}$. This equality is a hypothesis to verify, it is not inferred from the formal definition of $K$.
+
+\textbf{H3 (bounded tail curve).} A map $w:(0,\infty)\to H_0$ is $\ell$-Lipschitz for some $0\le\ell\le1$. There is $\eta\in H_0$ such that $w(s)\to\eta$ in $H_0$ as $s$ decreases to zero, and
+\[
+0<S:=\|\eta\|^2<1,\qquad \|w(s)\|^2\le S\quad(s>0).
+\tag{H3}
+\]
+Define $J=(-\infty,-1)\cup(1,\infty)$ and $F(t)=(\operatorname{sgn}t,w(|t|-1))$. Endpoints are comparison vectors only.
+
+\textbf{H4 (all actual parameter fibres).} For every $t\in J$ there exists $a^t$ in the actual $X^*$ with $r(a^t)=t$ and $Ma^t=F(t)$. Set
+\[
+D=\{a\in X^*:r(a)\in J,\ Ma=F(r(a))\},\qquad
+\operatorname{gra}A=\{(La,a):a\in D\}.
+\tag{H4}
+\]
+The graph uses the whole $D$. Each fibre is exactly $a^t+K$, it is not enough to use just the selected representatives. No uniform bound on $\|a^t\|$, and no bounded or continuous choice $t\mapsto a^t$, is assumed.
+
+\textbf{H5 (joint endpoint nonrealizability).} For every $\tau\in[-1,1]$ there is no $p\in X^*$ such that simultaneously
+\[
+r(p)=\tau,\qquad Mp=(\tau,\eta).
+\tag{H5}
+\]
+The stronger condition $(\tau,\eta)\notin M(X^*)$ would suffice but is not needed. Neither closedness of $M(X^*)$ in $H$ nor realizability of $\eta$ is assumed. The absence of an endpoint label is essential.
+
+\begin{theorem}\label{thm:construction}
+Under H1--H5, $A$ and $P_g$ are maximally monotone in $X\times X^*$, $\operatorname{dom}P_g=X$, and
+\[
+\operatorname{dom}A\ne\varnothing,\qquad
+0\notin\operatorname{dom}A,\qquad
+\mathcal V(A)\le S\|g\|.
+\]
+They satisfy
+\[
+\operatorname{dom}A\cap\operatorname{int}\operatorname{dom}P_g\ne\varnothing,
+\qquad
+(0,0)\in(\operatorname{gra}(A+P_g))^\mu\setminus\operatorname{gra}(A+P_g).
+\]
+Consequently, $A+P_g$ is not maximally monotone.
+\end{theorem}
+
+\subsection{Algebra and full-polar proof}
+
+\textbf{E1 (identities).} H1 implies
+\[
+\begin{gathered}
+r(g)=0,\quad g\in K,\quad
+\langle Ea,g\rangle=-r(a),\\
+\langle La,g\rangle=r(a),\quad
+\langle La,a\rangle=r(a)^2-\|Ma\|^2.
+\end{gathered}
+\tag{E1}
+\]
+Indeed H1 at $(g,g)$ gives $\langle Eg,g\rangle=\|Mg\|^2=0$, at $(a,g)$ gives the third identity, and at $(a,a)$ gives $\langle Ea,a\rangle=\|Ma\|^2$. The others follow by substitution. In particular $h$ is nonzero: H4 gives $r(a^2)=2$.
+
+\textbf{E2 (monotonicity).} $F$ is $1$-Lipschitz on $J$. On one branch this is H3. On opposite branches write $t=1+s$, $u=-1-v$ with $s,v>0$, then
+\[
+\|F(t)-F(u)\|^2\le4+\ell^2(s-v)^2\le(2+s+v)^2=|t-u|^2.
+\]
+By E1 applied to $a-c$,
+\[
+\langle La-Lc,a-c\rangle=(r(a)-r(c))^2-\|Ma-Mc\|^2\ge0
+\qquad(a,c\in D).
+\]
+Thus the entire graph $A$ is monotone.
+
+\textbf{E3 (exact full-polar reduction).} Let $(x,p)$ be any polar point in $X$ times the full $X^*$. Expansion of its bracket gives, for $a\in D$, $t=r(a)$,
+\[
+\begin{aligned}
+\langle x-La,p-a\rangle
+&=\langle x,p\rangle-\langle x+Ep,a\rangle\\
+&\quad+2(Ma,Mp)-t r(p)+t^2-\|Ma\|^2.
+\end{aligned}
+\tag{E3}
+\]
+For each $k\in K$ the replacement $a\mapsto a+\theta k$ is an actual graph test for every real $\theta$. Nonnegativity forces $\langle x+Ep,k\rangle=0$. By H2, $x=-Ep+vh$ for a real $v$. Set $r_p=r(p)$, $\tau=(v+r_p)/2$, $\nu=(v-r_p)/2$. Substitution into E3 yields
+\[
+\langle x-La,p-a\rangle
+=(t-\tau)^2-\nu^2-\|F(t)-Mp\|^2.
+\tag{E4}
+\label{eq:abstract-bracket}
+\]
+Every $t\in J$ has an actual fibre and the bracket is constant on it. Consequently a pair of this form is polar exactly when
+\[
+\|F(t)-Mp\|^2+\nu^2\le(t-\tau)^2\qquad(t\in J).
+\tag{E5}
+\]
+
+\textbf{E4 (endpoint exclusion and maximality).} If $|\tau|>1$, testing the actual $t=\tau$ in E5 gives $\nu=0$ and $Mp=F(\tau)$, so $v=r_p=\tau$, $p\in D$, and $x=Lp$. If $|\tau|\le1$, write $Mp=(b,z)$. Taking norm limits along actual $t$ down to $1$ and $t$ up to $-1$ in E5 gives
+\[
+\begin{aligned}
+(b-1)^2+\|z-\eta\|^2+\nu^2&\le(1-\tau)^2,\\
+(b+1)^2+\|z-\eta\|^2+\nu^2&\le(1+\tau)^2.
+\end{aligned}
+\]
+Weight these by $(1+\tau)/2$ and $(1-\tau)/2$. Expanding gives
+\[
+(b-\tau)^2+\|z-\eta\|^2+\nu^2\le0.
+\tag{E6}
+\]
+The endpoint cases $\tau=+1,-1$ are included. Thus $b=\tau$, $z=\eta$, $\nu=0$, and $r_p=\tau$, contradicting H5. Every polar point is in the graph. Together with E2 this proves $A$ maximally monotone in the full dual pair. The limits are in the auxiliary Hilbert space under H3, no endpoint is used as a graph row and no limit in $X^*$ is asserted.
+
+\subsection{Missing origin and nonmaximality of the sum}
+
+\textbf{E5 (radial bound and rank-one failure).} For every $a\in D$, $t=r(a)$,
+\[
+\begin{gathered}
+|\langle La,g\rangle|=|t|>1,\qquad
+\|La\|>\frac{1}{\|g\|},\\
+\langle La,a\rangle=t^2-1-\|w(|t|-1)\|^2>-S.
+\end{gathered}
+\tag{E7}
+\]
+Hence $A(0)$ is empty and $\mathcal V(A)\le S\|g\|$. Indeed, $S\|g\|\|La\|>S$ and $\langle La,a\rangle>-S$. The operator $P_g$ is maximally monotone with full domain by Section 1. The vector $La^2$ belongs to $\operatorname{dom}A$, so the interior-domain condition holds. Every point of the sum graph satisfies
+\[
+\langle La,a+P_gLa\rangle
+=2t^2-1-\|w(|t|-1)\|^2>1-S>0.
+\tag{E8}
+\]
+Thus $(0,0)$ is monotonically related to the entire graph of $A+P_g$ and does not belong to it. The sum is monotone, and adjoining $(0,0)$ gives a proper monotone extension. This completes the proof of Theorem~\ref{thm:construction}.
+
+\section{A concrete realization on $c_0$}
+
+We now construct maps and a curve satisfying H1--H5 simultaneously. Let $\mathbb N=\{1,2,\ldots\}$, $\mathbb N_0=\{0,1,\ldots\}$, and
+\[
+I=\mathbb N_0\times\mathbb N,\qquad
+X=c_0(I),\qquad X^*=\ell^1(I),\qquad
+H_0=\ell^2(\mathbb N).
+\]
+Here $c_0(I)$ consists of the scalar arrays for which only finitely many coordinates exceed any fixed positive threshold in absolute value. Since $I$ is countably infinite, it is isometrically isomorphic to standard $c_0$. Identify $H=\mathbb R\oplus H_0$ with $\ell^2(\mathbb N_0)$.
+
+For $a\in\ell^1(I)$ define
+\[
+(Ma)_b=\sum_{j\ge1}a_{b,j},\qquad
+(Ea)_{b,j}=a_{b,j}+2\sum_{k>j}a_{b,k}.
+\tag{C1}
+\]
+Let $e_{b,j}$ denote the coordinate vector and set
+\[
+\begin{aligned}
+g&=e_{0,1}-e_{0,2},\\
+h&=Eg=-e_{0,1}-e_{0,2},\\
+r(a)&=-a_{0,1}-a_{0,2},\\
+La&=-Ea+r(a)h.
+\end{aligned}
+\tag{C2}
+\]
+For $s>0$, set
+\[
+\begin{aligned}
+w(s)_n&=\frac{(1-sn^{1/4})_+}{4n}\quad(n\ge1),\\
+\eta_n&=\frac{1}{4n}\quad(n\ge1),\\
+\sigma&=\sum_{n\ge1}\frac{1}{16n^2}=\frac{\pi^2}{96}<\frac18,
+\end{aligned}
+\tag{C3}
+\]
+where $q_+=\max\{q,0\}$. Define $J,F,D$ and $A$ from these maps by H3--H4.
+
+\textbf{Verification of H1.} We have
+\[
+\|Ma\|_2\le\|Ma\|_1\le\|a\|_1,\qquad
+\|Ea\|_\infty\le2\|a\|_1.
+\]
+The map $E$ sends finite-support arrays to finite-support arrays. Approximating $a$ in $\ell^1(I)$ by such arrays and using the uniform bound gives $Ea\in c_0(I)$. All sums in the following identity are absolutely convergent:
+\[
+\begin{aligned}
+\langle Ea,c\rangle+\langle Ec,a\rangle
+&=2\sum_{b\ge0}\left(\sum_{j\ge1}a_{b,j}\right)
+                    \left(\sum_{j\ge1}c_{b,j}\right)\\
+&=2(Ma,Mc)_H.
+\end{aligned}
+\]
+The diagonal terms contribute $2a_{b,j}c_{b,j}$, and the two strict triangular sums supply both orders of each off-diagonal product. Also $Mg=0$ and $g\ne0$. This proves H1 with the required full spaces and bounded maps.
+
+\textbf{Verification of H2.} Let $K=\ker M\cap\ker r$ and suppose $x\in c_0(I)$ annihilates $K$. For each $b\ge1$, the vectors $e_{b,j}-e_{b,k}$ belong to $K$, so the coordinates of $x$ are constant on that block. The $c_0(I)$ condition makes each such constant zero. The same argument with $e_{0,j}-e_{0,k}$ for $j,k\ge3$ makes the tail of block zero vanish. Since $g\in K$, the first two coordinates in block zero are equal. Therefore $x\in\mathbb Rh$. Conversely, $\langle h,k\rangle=r(k)=0$ for every $k\in K$, so every vector in $\mathbb Rh$ annihilates $K$. This proves H2.
+
+\textbf{Verification of H3.} For each $s>0$, $w(s)_n=0$ whenever $n\ge s^{-4}$, so $w(s)$ has finite support. Moreover,
+\[
+0\le w(s)_n\le\eta_n,\qquad
+w(s)_n\longrightarrow\eta_n\quad(s\downarrow0).
+\]
+Because $\sum_n\eta_n^2=\sigma<\infty$, dominated convergence yields $w(s)\to\eta$ in $\ell^2$, and $\|w(s)\|_2^2\le\sigma$. The positive-part function is $1$-Lipschitz, hence
+\[
+\|w(s)-w(v)\|_2^2\le c|s-v|^2,\qquad
+c=\frac1{16}\sum_{n\ge1}n^{-3/2}<\frac3{16}<1.
+\]
+The strict bound on $c$ follows from $\sum_{n\ge1}n^{-3/2}<1+\int_1^\infty t^{-3/2}\,dt=3$. Thus H3 holds with $\ell=\sqrt c$ and $S=\sigma$.
+
+\textbf{Verification of H4.} For every $t\in J$, the vector
+\[
+a^t=-t e_{0,1}+(t+\operatorname{sgn}t)e_{0,3}
+    +\sum_{n\ge1}w(|t|-1)_n e_{n,1}
+\tag{C4}
+\]
+has finite support and satisfies $r(a^t)=t$ and $Ma^t=F(t)$. The graph is defined using all $a\in\ell^1(I)$ satisfying these constraints, not just the selected $a^t$. Each fibre is exactly $a^t+K$, because two labels in the same fibre have difference in $K$, and adding any element of $K$ preserves both constraints. This proves H4.
+
+\textbf{Verification of H5.} For every $p\in X^*=\ell^1(I)$, $Mp\in\ell^1(\mathbb N_0)$. However, $\eta=(1/(4n))_{n\ge1}$ does not belong to $\ell^1(\mathbb N)$. Hence $Mp=(\tau,\eta)$ is impossible for every real $\tau$, in particular for $\tau\in[-1,1]$. This proves H5.
+
+Theorem~\ref{thm:construction} now applies to these specific maps. Since $\|g\|_1=2$, it gives $\mathcal V(A)\le2\sigma<\frac14$. For an explicit nonempty-domain witness, $w(1)=0$ gives
+\[
+a^2=-2e_{0,1}+3e_{0,3},\qquad
+La^2=-6e_{0,1}-8e_{0,2}-3e_{0,3}.
+\]
+In particular, the operators
+\[
+\operatorname{gra}A=\{(La,a):a\in D\},\qquad
+P_gx=\langle x,g\rangle g
+\]
+are both maximally monotone in $c_0(I)\times\ell^1(I)$ and satisfy
+\[
+\begin{gathered}
+\operatorname{dom}A\cap\operatorname{int}\operatorname{dom}P_g
+=\operatorname{dom}A\ne\varnothing,\\
+(0,0)\in(\operatorname{gra}(A+P_g))^\mu
+\setminus\operatorname{gra}(A+P_g).
+\end{gathered}
+\tag{C5}
+\]
+Thus they form a counterexample to the unrestricted sum assertion under the interior-domain condition.
+
+\section{Dependence on the perturbation strength}
+
+\subsection{The fixed origin query has the exact threshold $S$}
+
+For $\lambda\ge0$ and every actual row, define its work after perturbation:
+\[
+b_\lambda(t)=(1+\lambda)t^2-1-\|w(|t|-1)\|^2.
+\tag{S1}
+\]
+H3 gives $b_\lambda(t)>\lambda-S$ for $|t|>1$, while its limits along actual $t$ to either endpoint are $\lambda-S$. Therefore
+\[
+\begin{gathered}
+\inf_{t\in J}b_\lambda(t)=\lambda-S,\\
+(0,0)\in(\operatorname{gra}(A+\lambda P_g))^\mu
+\iff\lambda\ge S.
+\end{gathered}
+\tag{S2}
+\]
+Nonmembership always holds because zero primal is missing. At $\lambda=S$ every row has strictly positive work although its infimum is zero. For $\lambda<S$, convergence supplies an \textbf{actual} row with negative work, the endpoint itself is not used as a witness.
+
+\subsection{Every positive strength has an explicit off-graph polar query}
+
+\textbf{S3 (positive perturbations).} Under H1--H5,
+\[
+\{\lambda\ge0:A+\lambda P_g\text{ is maximally monotone}\}=\{0\}.
+\tag{S3}
+\]
+Proof. The case $\lambda=0$ follows from the maximality of $A$. For $\lambda>0$ set $s=\frac{\sqrt{\lambda}}{2}$ and choose the actual representatives allowed by H4. Put
+\[
+p_s=\tfrac12(a^{1+s}+a^{-1-s}),\qquad x_s=-Ep_s.
+\tag{S4}
+\]
+Linearity gives $r(p_s)=0$, $Mp_s=(0,w(s))$, and $\langle x_s,g\rangle=0$. For any $a\in D$, $t=r(a)$, $u=|t|-1>0$, use Eq. (\ref{eq:abstract-bracket}) with $p=p_s$, $v=0$, $\tau=\nu=0$, or expand directly:
+\[
+\begin{aligned}
+\langle x_s-La,p_s-a-\lambda P_gLa\rangle
+ &=(1+\lambda)(1+u)^2-1-\|w(u)-w(s)\|^2\\
+ &\ge\lambda-\ell^2s^2
+     +2(1+\lambda+\ell^2s)u+(1+\lambda-\ell^2)u^2\\
+ &>\lambda-\ell^2s^2\ge\frac{3\lambda}{4}>0.
+\end{aligned}
+\tag{S5}
+\]
+The expansion uses only H3 and $\lambda\ge0$, all $t$ and all fibre values are covered. Further, every primal $La$ has $|\langle La,g\rangle|>1$ whereas $\langle x_s,g\rangle=0$, so $x_s$ is not in $\operatorname{dom}A$ and hence not in $\operatorname{dom}(A+\lambda P_g)$. This makes $(x_s,p_s)$ an explicit off-graph polar point. The sum is monotone, and adding this point is a proper monotone extension. This proves S3.
+
+\end{document}
