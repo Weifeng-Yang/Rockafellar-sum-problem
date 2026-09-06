@@ -1,0 +1,1023 @@
+% Compile with XeLaTeX.
+\documentclass[UTF8,fontset=fandol,11pt,a4paper]{ctexart}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[unicode,hidelinks]{hyperref}
+\hypersetup{pdftitle={Counterexamples on c0 and standard l1},pdfauthor={}}
+\usepackage{bookmark}
+\usepackage{array}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{2em}
+\linespread{1.13}
+\allowdisplaybreaks[1]
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-1}
+\date{}
+\begin{document}
+\begin{center}
+{\Large\bfseries $c_0$ 与标准 $\ell^1$ 上的反例}\par\medskip
+\end{center}
+
+本文给出指数尾曲线构造的 $c_0$ 反例，以及有限支撑曲线构造的 $c_0$ 反例和它在标准 $\ell^1$ 上的提升。各例均由两个极大单调算子组成，满足原范数拓扑下的内部条件，而其和非极大单调。
+
+\section*{定义与符号}
+
+令 $\mathbb N=\{1,2,\ldots\}$，$\mathbb N_0=\{0,1,\ldots\}$。对实 Banach 空间 $Y$，以 $Y^*$ 表示其连续对偶，并记 $\langle x,a\rangle=a(x)$。对算子 $T:Y\rightrightarrows Y^*$，定义 $\operatorname{gra}T=\{(x,a):a\in Tx\}$ 和 $\operatorname{dom}T=\{x:Tx\ne\varnothing\}$。算子的逐点和定义为 $(T+R)x=\{a+b:a\in Tx,\ b\in Rx\}$。
+
+图 $G\subset Y\times Y^*$ 单调是指其任意两点满足 $\langle x-y,a-b\rangle\ge0$。若它单调且在 $Y\times Y^*$ 中没有真单调扩张，则称其极大单调。定义单调极性集
+\[
+G^\mu=\{(z,p)\in Y\times Y^*:
+\langle z-x,p-a\rangle\ge0\quad\forall(x,a)\in G\}.
+\]
+单调图 $G$ 极大单调当且仅当 $G=G^\mu$：$G^\mu\setminus G$ 中的点可以加入而保持单调性，任一单调扩张中的点也必须属于 $G^\mu$。特别地，$(0,0)\in G^\mu$ 当且仅当 $\langle x,a\rangle\ge0$ 对所有 $(x,a)\in G$ 成立。
+
+当 $\operatorname{gra}T\ne\varnothing$ 且 $0\notin\operatorname{dom}T$ 时，记
+\[
+\mathcal V(T)=\sup_{(x,a)\in\operatorname{gra}T}
+\frac{\max\{0,-\langle x,a\rangle\}}{\|x\|}.
+\]
+因此，对每个 $C\ge0$，$\mathcal V(T)\le C$ 当且仅当 $\langle x,a\rangle\ge-C\|x\|$ 对全部图点成立。对任意非空图，还记
+\[
+\begin{aligned}
+F_T(x,p)&=\sup_{(y,a)\in\operatorname{gra}T}
+\bigl(\langle x,a\rangle+\langle y,p\rangle-\langle y,a\rangle\bigr),\\
+\Phi_T(x,p)&=F_T(x,p)-\langle x,p\rangle\\
+&=\sup_{(y,a)\in\operatorname{gra}T}\langle x-y,a-p\rangle.
+\end{aligned}
+\]
+对两个极大单调算子 $T,R$，定义
+\[
+\Delta_{T,R}(x,p)=\inf_{q\in Y^*}
+\bigl[\Phi_T(x,p-q)+\Phi_R(x,q)\bigr].
+\]
+下文 $g\otimes g$ 表示算子 $x\mapsto\langle x,g\rangle g$，$q_+=\max\{q,0\}$，$c_{00}$ 表示有限支撑序列的集合。所有极大性均在完整连续对偶对中，所有内部均相对于原范数拓扑。
+
+\part*{Counterexample on $c_0$}
+
+在通常的实 Banach 空间 $c_0$ 及其完整对偶 $\ell^1$ 上，构造极大单调算子 $A$ 和非零秩一正算子 $P=g\otimes g$，使 \[
+\boxed{
+(0,0)\in
+\bigl(\operatorname{gra}(A+P)\bigr)^\mu
+\setminus\operatorname{gra}(A+P),
+}
+\] 而且原点对\textbf{整个和图}具有统一严格余量： \[
+\boxed{
+\inf_{(x,a)\in\operatorname{gra}A}
+\bigl(\langle x,a\rangle+g(x)^2\bigr)
+=
+1-\frac1{16}\sum_{n=1}^{\infty}\frac1{n^2}
+>\frac78.
+}
+\]
+
+\section{一、完整空间和块算子}\label{ux4e00ux5b8cux6574ux7a7aux95f4ux548cux5757ux7b97ux5b50}
+
+取 \[
+I=\mathbb N_0\times\mathbb N,\qquad
+X=c_0(I),\qquad X^*=\ell^1(I).
+\] 这里的 $c_0(I)$ 是\textbf{全指标集上的通常 $c_0$}，不是仅要求每个块分别趋零的较大空间。因为 $I$ 可数，$X$ 与标准 $c_0$ 等距。
+
+对 $a\in\ell^1(I)$，定义 \[
+(ma)_b=\sum_{j\ge1}a_{b,j},
+\qquad
+(Ea)_{b,j}=a_{b,j}+2\sum_{k>j}a_{b,k}.
+\tag{1}
+\] 于是 \[
+m:\ell^1(I)\to\ell^1(\mathbb N_0),
+\qquad
+E:\ell^1(I)\to c_0(I),
+\] 且 \[
+\|ma\|_1\le\|a\|_1,\qquad
+\|Ea\|_\infty\le2\|a\|_1.
+\]
+
+其中 $E$ 的全局 $c_0$ 性质可以直接检查：只有有限多个块的 $\ell^1$ 范数超过任一给定阈值；每个这样的块内，尾和又趋于零。
+
+绝对收敛的求和给出 \[
+\boxed{
+\langle Ea,b\rangle+\langle Eb,a\rangle
+=2\sum_{n\ge0}(ma)_n(mb)_n,
+\qquad
+\langle Ea,a\rangle=\|ma\|_2^2.
+}
+\tag{2}
+\] 这里的 $\ell^2$ 只用于计算块质量的能量；原始空间及完整对偶始终是 $c_0(I)\times\ell^1(I)$。
+
+固定 \[
+g=e_{0,1}-e_{0,2}\in X^*,
+\qquad h=Eg\in X.
+\] 具体而言，$h$ 的前两个第零块坐标都是 $-1$，其余坐标为零。因此 \[
+mg=0,\qquad \langle h,g\rangle=0.
+\] 令 \[
+r(a)=\langle h,a\rangle=-a_{0,1}-a_{0,2},
+\qquad
+La=-Ea+r(a)h.
+\tag{3}
+\]
+
+由式 (2)，得到三个后面要使用的恒等式： \[
+\boxed{
+\langle La,a\rangle=r(a)^2-\|ma\|_2^2,
+}
+\tag{4}
+\] \[
+\boxed{
+\langle La-Lb,a-b\rangle
+=(r(a)-r(b))^2-\|ma-mb\|_2^2,
+}
+\tag{5}
+\] \[
+\boxed{\langle La,g\rangle=r(a).}
+\tag{6}
+\]
+
+\textbf{不声称 $L$ 在整个 $\ell^1(I)$ 上单调。} 接下来将明确指定其非线性限制域。
+
+\section{二、实际谱曲线与不可成为实际质量的端点}\label{ux4e8cux5b9eux9645ux8c31ux66f2ux7ebfux4e0eux4e0dux53efux6210ux4e3aux5b9eux9645ux8d28ux91cfux7684ux7aefux70b9}
+
+对 $s>0$，定义 \[
+\omega_s
+=
+\left(\frac{e^{-ns^2}}{4n}\right)_{n\ge1}
+\in\ell^1(\mathbb N).
+\tag{7}
+\] 每个实际参数的可求和性是明确的： \[
+\|\omega_s\|_1
+=-\frac14\log(1-e^{-s^2})<\infty.
+\]
+
+另一方面， \[
+\omega_s\longrightarrow
+\omega_0:=\left(\frac1{4n}\right)_{n\ge1}
+\quad\text{in }\ell^2
+\quad(s\downarrow0),
+\] 但是 \[
+\boxed{\omega_0\in\ell^2\setminus\ell^1.}
+\tag{8}
+\] 记 \[
+\sigma=\|\omega_0\|_2^2
+=\frac1{16}\sum_{n\ge1}\frac1{n^2}
+=\frac{\pi^2}{96}<\frac18,
+\qquad
+\delta=1-\sigma>\frac78.
+\tag{9}
+\]
+
+曲线具有统一的 $\ell^2$ Lipschitz 估计。逐坐标求导： \[
+\omega_s'(n)=-\frac{s}{2}e^{-ns^2},
+\] 所以 \[
+\sum_{n\ge1}|\omega_s'(n)|^2
+=
+\frac{s^2}{4(e^{2s^2}-1)}
+\le\frac18.
+\] 先对有限截断使用积分 Cauchy-Schwarz，再令截断长度趋于无穷，得到 \[
+\boxed{
+\|\omega_s-\omega_t\|_2^2\le\frac18(s-t)^2.
+}
+\tag{10}
+\]
+
+现在令 \[
+U=(-\infty,-1)\cup(1,\infty),
+\qquad
+F(t)=\bigl(\operatorname{sgn}t,\omega_{|t|-1}\bigr)
+\in\ell^1(\mathbb N_0).
+\tag{11}
+\] $F$ 在 $\ell^2$ 距离下为 $1$-Lipschitz。同号时直接由式 (10) 得到；异号时写成 $t=1+s$、$u=-1-v$，其中 $s,v>0$，则 \[
+\begin{aligned}
+\|F(t)-F(u)\|_2^2
+&=4+\|\omega_s-\omega_v\|_2^2\\
+&\le4+\frac18(s-v)^2\\
+&\le(2+s+v)^2=(t-u)^2.
+\end{aligned}
+\tag{12}
+\]
+
+两侧的能量极限是 \[
+F_+=(1,\omega_0),\qquad F_-=(-1,\omega_0).
+\tag{13}
+\] \textbf{二者都不属于实际质量空间 $\ell^1(\mathbb N_0)$。后面只用它们取必要不等式的极限，不将它们插入原图。}
+
+\section{三、明确指定整张原图，并证明单调性}\label{ux4e09ux660eux786eux6307ux5b9aux6574ux5f20ux539fux56feux5e76ux8bc1ux660eux5355ux8c03ux6027}
+
+定义 \[
+D=
+\left\{
+a\in\ell^1(I):
+r(a)\in U,\quad ma=F(r(a))
+\right\}.
+\tag{14}
+\] 这里包括满足等式的\textbf{全部} $\ell^1$ 数组。
+
+令 \[
+\boxed{
+\operatorname{gra}A=\{(La,a):a\in D\}.
+}
+\tag{15}
+\]
+
+每个 $t\in U$ 都有一个明确的实际参数 $a^t\in D$： \[
+a^t_{0,1}=-t,\qquad
+a^t_{0,2}=0,\qquad
+a^t_{0,3}=t+\operatorname{sgn}t,
+\] \[
+a^t_{n,1}
+=\frac{e^{-n(|t|-1)^2}}{4n}
+\quad(n\ge1),
+\] 其余坐标为零。
+
+于是 \[
+r(a^t)=t,\qquad ma^t=F(t),\qquad a^t\in\ell^1(I).
+\] 这既证明 $D\ne\varnothing$，也保证以后对任意 $t\in U$ 的测试都有\textbf{原图实际行}。
+
+对全部 $a,b\in D$，由式 (5)、(12)， \[
+\begin{aligned}
+\langle La-Lb,a-b\rangle
+&=(r(a)-r(b))^2
+-\|F(r(a))-F(r(b))\|_2^2\\
+&\ge0.
+\end{aligned}
+\tag{16}
+\] 因此 $A$ 单调。
+
+\section{\texorpdfstring{四、核心：完整 $c_0\times\ell^1$ 对偶对中的极大性}{四、核心：完整 c\_0\textbackslash times\textbackslash ell\^{}1 对偶对中的极大性}}\label{ux56dbux6838ux5fc3ux5b8cux6574-c_0timesell1-ux5bf9ux5076ux5bf9ux4e2dux7684ux6781ux5927ux6027}
+
+任取实际查询 \[
+(x,p)\in c_0(I)\times\ell^1(I)
+\] 满足 \[
+\langle x-La,p-a\rangle\ge0
+\qquad\forall a\in D.
+\tag{17}
+\] 下面证明它必定属于式 (15) 的原图。
+
+\subsection{4.1 全部实际核直线压出查询坐标}\label{ux5168ux90e8ux5b9eux9645ux6838ux76f4ux7ebfux538bux51faux67e5ux8be2ux5750ux6807}
+
+令 \[
+K=\{k\in\ell^1(I):mk=0,\ r(k)=0\}.
+\] 固定任意 $a\in D$。对所有 $k\in K$、$\theta\in\mathbb R$， \[
+a+\theta k\in D.
+\] 因此可以将这条完整实际直线代入式 (17)。
+
+因为 $Lk=-Ek$ 且 $\langle Lk,k\rangle=0$，直接展开得到 \[
+\boxed{
+\langle x-L(a+\theta k),p-a-\theta k\rangle
+=
+\langle x-La,p-a\rangle
+-\theta\langle x+Ep,k\rangle.
+}
+\tag{18}
+\] 对正负全部 $\theta$ 非负，便迫使 \[
+\langle x+Ep,k\rangle=0\qquad(k\in K).
+\tag{19}
+\]
+
+设 $w=x+Ep\in c_0(I)$。只需使用有限支撑的实际核方向：
+
+对于每个 $b\ge1$，坐标差 $e_{b,j}-e_{b,k}\in K$，故 $w$ 在该无限块内恒定；由 $c_0$ 性质，该块恒为零。第零块从第三坐标起同理全为零。再用 $g=e_{0,1}-e_{0,2}\in K$，得到前两个坐标相等。
+
+因此存在 $v\in\mathbb R$，使 \[
+\boxed{x+Ep=vh,\qquad x=-Ep+vh.}
+\tag{20}
+\]
+
+\subsection{4.2 全图 polar 条件化为精确平方不等式}\label{ux5168ux56fe-polar-ux6761ux4ef6ux5316ux4e3aux7cbeux786eux5e73ux65b9ux4e0dux7b49ux5f0f}
+
+记 \[
+r_p=r(p),\qquad m_p=mp\in\ell^1\subset\ell^2.
+\] 由式 (2)、(20)，对每条实际行有 \[
+\boxed{
+\langle x-La,p-a\rangle
+=
+(r(a)-v)(r(a)-r_p)
+-\|F(r(a))-m_p\|_2^2.
+}
+\tag{21}
+\]
+
+每个 $t\in U$ 都有实际 $a^t$，故式 (17) 等价于 \[
+\|F(t)-m_p\|_2^2\le(t-v)(t-r_p)
+\qquad(t\in U).
+\] 令 \[
+\tau=\frac{v+r_p}{2},\qquad
+\nu=\frac{v-r_p}{2}.
+\] 得到 \[
+\boxed{
+\|F(t)-m_p\|_2^2+\nu^2
+\le(t-\tau)^2
+\qquad(t\in U).
+}
+\tag{22}
+\]
+
+\subsection{4.3 外侧查询直接返回实际行}\label{ux5916ux4fa7ux67e5ux8be2ux76f4ux63a5ux8fd4ux56deux5b9eux9645ux884c}
+
+若 $|\tau|>1$，则 $\tau\in U$，可以在式 (22) 中代入\textbf{实际参数} $t=\tau$。于是 \[
+m_p=F(\tau),\qquad \nu=0.
+\] 从而 \[
+v=r_p=\tau,\qquad p\in D,\qquad
+x=-Ep+r_ph=Lp.
+\] 因此 \[
+(x,p)\in\operatorname{gra}A.
+\]
+
+\subsection{4.4 中间查询被完整对偶排除}\label{ux4e2dux95f4ux67e5ux8be2ux88abux5b8cux6574ux5bf9ux5076ux6392ux9664}
+
+若 $|\tau|\le1$，分别令实际参数 $t\downarrow1$ 和 $t\uparrow-1$。由 $\ell^2$ 收敛，式 (22) 要求 \[
+\|F_+-m_p\|_2^2+\nu^2\le(1-\tau)^2,
+\] \[
+\|F_--m_p\|_2^2+\nu^2\le(1+\tau)^2.
+\tag{23}
+\]
+
+写 \[
+m_p=(b,z),\qquad z\in\ell^1(\mathbb N),
+\] 并令 \[
+R=\|z-\omega_0\|_2^2+\nu^2\ge0.
+\] 那么式 (23) 是 \[
+(b-1)^2+R\le(1-\tau)^2,
+\qquad
+(b+1)^2+R\le(1+\tau)^2.
+\tag{24}
+\]
+
+由于 $-1\le\tau\le1$，第一式给出 $b\ge\tau$，第二式给出 $b\le\tau$。所以 $b=\tau$，代回即得 \[
+R=0,\qquad z=\omega_0.
+\] 但这与 \[
+z\in\ell^1,\qquad\omega_0\notin\ell^1
+\] 矛盾。
+
+\textbf{这里不是用一个非实际端点充当返回行；恰恰相反，是证明任何中间的原空间 polar 查询都必须携带一个不可能的实际 $\ell^1$ 质量。}
+
+两种情形穷尽全部实际查询，因此 \[
+\boxed{
+(\operatorname{gra}A)^\mu=\operatorname{gra}A.
+}
+\tag{25}
+\] 这就是原始完整 Banach 对偶对中的极大性。
+
+\section{五、同一张图上的秩一和失效}\label{ux4e94ux540cux4e00ux5f20ux56feux4e0aux7684ux79e9ux4e00ux548cux5931ux6548}
+
+定义 \[
+\boxed{Px=\langle x,g\rangle g.}
+\tag{26}
+\] $P$ 非零、秩一、有界、全定义，且 \[
+\langle x-y,Px-Py\rangle
+=\langle x-y,g\rangle^2\ge0.
+\]
+
+它自身的极大性也直接成立：对一个 $P$-polar 查询 $(z,z^*)$，测试 $(z+tu,P(z+tu))$，得 \[
+-t\langle u,z^*-Pz\rangle
++t^2\langle u,Pu\rangle\ge0.
+\] 令 $t$ 从正负两侧趋零，得到 $z^*=Pz$。
+
+现在，对全部 $a\in D$，式 (6) 给出 \[
+g(La)=r(a),\qquad |r(a)|>1.
+\] 因此 \[
+\boxed{0\notin\operatorname{dom}A.}
+\tag{27}
+\]
+
+而整个和图的原点括号为 \[
+\begin{aligned}
+\langle La,a+P(La)\rangle
+&=2r(a)^2-\|F(r(a))\|_2^2\\
+&=2r(a)^2-1
+-\frac1{16}\sum_{n\ge1}
+\frac{e^{-2n(|r(a)|-1)^2}}{n^2}\\
+&>\delta=1-\sigma>\frac78.
+\end{aligned}
+\tag{28}
+\]
+
+所以 \[
+\boxed{
+(0,0)\in
+(\operatorname{gra}(A+P))^\mu
+\setminus\operatorname{gra}(A+P).
+}
+\tag{29}
+\]
+由于 $A+P$ 单调，加入 $(0,0)$ 后得到其真单调扩张，故 $A+P$ 非极大单调。
+
+资格条件完整成立： \[
+\boxed{
+\operatorname{dom}A
+\cap\operatorname{int}\operatorname{dom}P
+=
+\operatorname{dom}A\ne\varnothing.
+}
+\tag{30}
+\] 这给出的四元组是 \[
+\boxed{\bigl(c_0(I),A,g\otimes g,(0,0)\bigr).}
+\]
+
+式 (28) 的下确界精确等于 $\delta$：用已经写出的实际 $a^t$，令 $t\downarrow1$ 即可。没有要求一个非实际端点达到下确界。
+
+\section{六、逆纤维、缩放与反馈映射}\label{ux516dux4e0eux5f53ux524d-sinf-ux548cux53cdux9988ux95eeux9898ux7684ux7cbeux786eux8fdeux63a5}
+
+逆纤维单点性直接包含在定义里： \[
+A^{-1}(a)=
+\begin{cases}
+\{La\},&a\in D,\\
+\varnothing,&a\notin D.
+\end{cases}
+\] 因此每个逆纤维至多一点。
+
+令 $c=\delta^{-1/2}$，定义 \[
+\widehat A(x)=c\,A(x/c).
+\] 它的图是 \[
+\{(cLa,ca):a\in D\}.
+\] 全部差括号乘以 $c^2$，所以仍极大单调，并保持单点逆纤维。同时 \[
+\boxed{
+\inf_{(x,a)\in\operatorname{gra}\widehat A}
+\bigl(\langle x,a\rangle+g(x)^2\bigr)=1.
+}
+\tag{31}
+\] 因此该缩放保留极大单调性及逆纤维单点性，并将上述下确界归一化为 $1$。
+
+未缩放时，$B=A^{-1}=L|_D$ 的反馈也完全明确： \[
+\Phi_{\mathrm{fb}}(a)=a+g(Ba)g=a+r(a)g.
+\] 由于 $mg=0$、$r(g)=0$， \[
+\boxed{\Phi_{\mathrm{fb}}(D)=D,\qquad \Phi_{\mathrm{fb}}^{-1}(a)=a-r(a)g,\qquad0\notin D.}
+\tag{32}
+\]
+
+每条已经遇到 $D$ 的 $g$-直线，实际上都完整地包含在 $D$： \[
+a_0+\mathbb Rg\subset D\qquad(a_0\in D),
+\] \[
+B(a_0+tg)=Ba_0-th,\qquad
+g(B(a_0+tg))=r(a_0).
+\tag{33}
+\] 但目标直线 $\mathbb Rg$ 完全避开 $D$。
+
+由自配对公式和实际参数 $t\downarrow1$，还可计算
+\[
+\begin{aligned}
+F_A(0,0)
+&=\sup_{|t|>1}\bigl(1+\|\omega_{|t|-1}\|_2^2-t^2\bigr)=\sigma,\\
+F_{A+P}(0,0)
+&=\sup_{|t|>1}\bigl(1+\|\omega_{|t|-1}\|_2^2-2t^2\bigr)=\sigma-1.
+\end{aligned}
+\]
+因此
+\[
+F_A(0,0)-F_{A+P}(0,0)=1.
+\]
+
+\clearpage
+\part*{Finite-support version and counterexample on standard $\ell^1$}
+
+下面将指数尾替换为每个实际参数下均有限支撑的曲线，重新证明所得算子的极大性，再通过一个有界线性满射构造标准 $\ell^1$ 上的反例。
+
+\section{一、要证明的反例结论}\label{ux4e00ux8981ux8bc1ux660eux7684ux53cdux4f8bux7ed3ux8bba}
+
+将构造 \[
+T:\ell^1(\mathbb N)\rightrightarrows\ell^\infty(\mathbb N),
+\] 满足 \[
+\boxed{
+\begin{gathered}
+T\text{ 在完整 }\ell^1\times\ell^\infty\text{ 中极大单调},\\
+T(0)=\varnothing,\\
+\langle u,b\rangle\ge-\frac14\|u\|_1
+\qquad\forall(u,b)\in\operatorname{gra}T.
+\end{gathered}}
+\]
+
+还将构造一个非零正秩一、全定义、极大单调算子 \[
+Bu=\langle u,f\rangle f
+\] 使 \[
+\boxed{
+(0,0)\in
+\bigl(\operatorname{gra}(T+B)\bigr)^\mu
+\setminus\operatorname{gra}(T+B).
+}
+\]
+
+由于 $B$ 的定义域为整个 $\ell^1$，只要 $\operatorname{dom}T\ne\varnothing$，便满足 $\operatorname{dom}T\cap\operatorname{int}\operatorname{dom}B\ne\varnothing$。上述性质因此给出原内部条件下一般求和命题的反例，并同时给出 $\mathcal V(T)<\infty$ 而 $T(0)=\varnothing$ 的极大单调算子。
+
+\section{\texorpdfstring{二、先在 $c_0$ 的完整对偶对中构造算子}{二、先在 c\_0 的完整对偶对中构造算子}}\label{ux4e8cux5148ux5728-c_0-ux7684ux5b8cux6574ux5bf9ux5076ux5bf9ux4e2dux6784ux9020ux7b97ux5b50}
+
+\subsection{1. 两层可数指标与线性配对}\label{ux4e24ux5c42ux53efux6570ux6307ux6807ux4e0eux7ebfux6027ux914dux5bf9}
+
+令 \[
+I=\mathbb N_0\times\mathbb N,\qquad
+X=c_0(I),\qquad X^*=\ell^1(I).
+\]
+
+这里的 $c_0(I)$ 是\textbf{整个指标集上的通常 $c_0$}，不是只要求每一块分别趋零。
+
+对 $a=(a_{b,j})\in\ell^1(I)$，定义 \[
+(ma)_b=\sum_{j\ge1}a_{b,j},
+\qquad
+(Ea)_{b,j}=a_{b,j}+2\sum_{k>j}a_{b,k}.
+\]
+
+有 \[
+\|ma\|_1\le\|a\|_1,\qquad
+\|Ea\|_\infty\le2\|a\|_1.
+\]
+
+而且 $Ea\in c_0(I)$：对于任何正阈值，只有有限多个块的 $\ell^1$ 质量超过该阈值；每个这样的块内，尾和趋零。其余块的全部坐标则由两倍块质量统一控制。
+
+绝对收敛的求和给出 \[
+\langle Ea,b\rangle+\langle Eb,a\rangle
+=2\langle ma,mb\rangle_{\ell^2},
+\] 特别是 \[
+\langle Ea,a\rangle=\|ma\|_2^2.
+\tag{1}
+\]
+
+取 \[
+g=e_{0,1}-e_{0,2},\qquad h=Eg.
+\] 则 $h$ 只有第零块的前两个坐标非零，二者均为 $-1$，并且 \[
+mg=0,\qquad \langle h,g\rangle=0.
+\]
+
+定义 \[
+r(a)=\langle h,a\rangle=-a_{0,1}-a_{0,2},
+\qquad
+La=-Ea+r(a)h.
+\]
+
+由式（1）， \[
+\boxed{
+\langle La-Lb,a-b\rangle
+=(r(a)-r(b))^2-\|ma-mb\|_2^2,
+}
+\tag{2}
+\] 以及 \[
+\boxed{
+\langle La,a\rangle=r(a)^2-\|ma\|_2^2,
+\qquad
+\langle La,g\rangle=r(a).
+}
+\tag{3}
+\]
+
+这些线性映射与第一部分相同，下面采用不同的参数曲线。
+
+\subsection{2. 用有限支撑尾部实现非实际端点}\label{ux7528ux6709ux9650ux652fux6491ux5c3eux90e8ux5b9eux73b0ux975eux5b9eux9645ux7aefux70b9}
+
+对 $s>0$，定义 \[
+\omega_s(n)=\frac{(1-sn^{1/4})_+}{4n},
+\qquad n\ge1.
+\tag{4}
+\]
+
+因为只有 $n<s^{-4}$ 时可能非零， \[
+\omega_s\in c_{00}\subset\ell^1
+\qquad(s>0).
+\]
+
+但当 $s\downarrow0$ 时， \[
+\omega_s\longrightarrow
+\omega_0:=\left(\frac1{4n}\right)_{n\ge1}
+\quad\text{在 }\ell^2\text{ 范数中},
+\] 而 \[
+\omega_0\in\ell^2\setminus\ell^1.
+\tag{5}
+\]
+
+记 \[
+\sigma:=\|\omega_0\|_2^2
+=\frac1{16}\sum_{n\ge1}\frac1{n^2}
+<\frac18.
+\]
+
+正部函数是 $1$-Lipschitz，故 \[
+|\omega_s(n)-\omega_t(n)|
+\le\frac{|s-t|}{4n^{3/4}}.
+\] 从而 \[
+\|\omega_s-\omega_t\|_2^2
+\le\frac1{16}
+\left(\sum_{n\ge1}n^{-3/2}\right)|s-t|^2
+\le\frac3{16}|s-t|^2.
+\tag{6}
+\]
+
+这里 $\sum_{n\ge1}n^{-3/2}<1+\int_1^\infty x^{-3/2}\,dx=3$。
+
+令 \[
+J=(-\infty,-1)\cup(1,\infty),
+\] \[
+F(t)=\bigl(\operatorname{sgn}t,\omega_{|t|-1}\bigr)
+\in\ell^1(\mathbb N_0),
+\qquad t\in J.
+\tag{7}
+\]
+
+这个 $F$ 满足 \[
+\|F(t)-F(u)\|_2\le|t-u|.
+\tag{8}
+\]
+
+同号时由式（6）直接得到。异号时写成 $t=1+s$、$u=-1-v$，则 \[
+\begin{aligned}
+\|F(t)-F(u)\|_2^2
+&=4+\|\omega_s-\omega_v\|_2^2\\
+&\le4+\frac3{16}(s-v)^2\\
+&\le(2+s+v)^2.
+\end{aligned}
+\]
+
+现在定义\textbf{完整参数域} \[
+D=\{a\in\ell^1(I):r(a)\in J,\ ma=F(r(a))\},
+\tag{9}
+\] 并定义整张图 \[
+\boxed{
+\operatorname{gra}A=\{(La,a):a\in D\}.
+}
+\tag{10}
+\]
+
+这个域不是假想的。每个 $t\in J$ 都有一个明确的有限支撑参数： \[
+a^t_{0,1}=-t,\quad
+a^t_{0,2}=0,\quad
+a^t_{0,3}=t+\operatorname{sgn}t,
+\] \[
+a^t_{n,1}=\omega_{|t|-1}(n)\quad(n\ge1),
+\] 其余坐标为零。它满足 \[
+r(a^t)=t,\qquad ma^t=F(t).
+\]
+
+而对任意 $a,b\in D$，式（2）、（8）给出 \[
+\langle La-Lb,a-b\rangle
+=(r(a)-r(b))^2
+-\|F(r(a))-F(r(b))\|_2^2
+\ge0.
+\] 所以 $A$ 非空且单调。
+
+\section{三、关键：证明它是完整极大单调图}\label{ux4e09ux5173ux952eux8bc1ux660eux5b83ux662fux5b8cux6574ux6781ux5927ux5355ux8c03ux56fe}
+
+这一部分不能由有限截断、数值实验或``选一个极大扩张''替代。
+
+任取 \[
+(x,p)\in c_0(I)\times\ell^1(I)
+\] 满足 \[
+\langle x-La,p-a\rangle\ge0
+\qquad\forall a\in D.
+\tag{11}
+\]
+
+需要证明 $(x,p)$ 已经属于式（10）。
+
+\subsection{1. 全部实际核直线强迫查询的形式}\label{ux5168ux90e8ux5b9eux9645ux6838ux76f4ux7ebfux5f3aux8febux67e5ux8be2ux7684ux5f62ux5f0f}
+
+令 \[
+K=\{k\in\ell^1(I):mk=0,\ r(k)=0\}.
+\]
+
+对任意 $a\in D$、$k\in K$、$\theta\in\mathbb R$，都有 \[
+a+\theta k\in D.
+\]
+
+将这条\textbf{完整实际直线}代入式（11）。由式（1）展开得 \[
+\begin{aligned}
+&\langle x-L(a+\theta k),p-a-\theta k\rangle\\
+&\qquad=
+\langle x-La,p-a\rangle
+-\theta\langle x+Ep,k\rangle.
+\end{aligned}
+\tag{12}
+\]
+
+因为这对全部正负 $\theta$ 非负，必有 \[
+\langle x+Ep,k\rangle=0
+\qquad(k\in K).
+\tag{13}
+\]
+
+设 $w=x+Ep\in c_0(I)$。
+
+对每个 $b\ge1$，所有坐标差 \[
+e_{b,j}-e_{b,l}\in K,
+\] 因此 $w$ 在该无限块内恒定。由于 $w\in c_0(I)$，这个常数只能为零。
+
+第零块从第三个坐标起同理全为零。再用 \[
+e_{0,1}-e_{0,2}=g\in K
+\] 得到前两个坐标相同。
+
+所以存在 $v\in\mathbb R$，使 \[
+\boxed{x+Ep=vh,\qquad x=-Ep+vh.}
+\tag{14}
+\]
+
+\subsection{2. 全图极性化为精确平方不等式}\label{ux5168ux56feux6781ux6027ux5316ux4e3aux7cbeux786eux5e73ux65b9ux4e0dux7b49ux5f0f}
+
+记 \[
+r_p=r(p),\qquad m_p=mp\in\ell^1\subset\ell^2.
+\]
+
+对任意实际参数 $a\in D$，令 $t=r(a)$。由式（14）， \[
+\begin{aligned}
+\langle x-La,p-a\rangle
+&=-\|m_p-F(t)\|_2^2+(v-t)(r_p-t)\\
+&=(t-v)(t-r_p)-\|F(t)-m_p\|_2^2.
+\end{aligned}
+\tag{15}
+\]
+
+每个 $t\in J$ 都有实际参数 $a^t$ 可测试。因此，令 \[
+\tau=\frac{v+r_p}{2},
+\qquad
+\nu=\frac{v-r_p}{2},
+\] 式（11）强迫 \[
+\boxed{
+\|F(t)-m_p\|_2^2+\nu^2
+\le(t-\tau)^2
+\qquad\forall t\in J.
+}
+\tag{16}
+\]
+
+现在只有两种情况。
+
+\textbf{若 $|\tau|>1$}，则 $\tau\in J$，直接代入实际参数 $t=\tau$，得到 \[
+m_p=F(\tau),\qquad \nu=0.
+\] 所以 \[
+v=r_p=\tau,\qquad p\in D,\qquad x=Lp.
+\] 即查询已经在原图内。
+
+\textbf{若 $|\tau|\le1$}，分别让实际参数 $t\downarrow1$、$t\uparrow-1$。由式（5），得到 \[
+\|(1,\omega_0)-m_p\|_2^2+\nu^2
+\le(1-\tau)^2,
+\] \[
+\|(-1,\omega_0)-m_p\|_2^2+\nu^2
+\le(1+\tau)^2.
+\tag{17}
+\]
+
+写 \[
+m_p=(b,z),\qquad z\in\ell^1,
+\] 并令 \[
+R=\|z-\omega_0\|_2^2+\nu^2\ge0.
+\] 则 \[
+(b-1)^2+R\le(1-\tau)^2,
+\qquad
+(b+1)^2+R\le(1+\tau)^2.
+\]
+
+因为 $-1\le\tau\le1$，第一式给出 $b\ge\tau$，第二式给出 $b\le\tau$。因此 \[
+b=\tau,\qquad R=0.
+\] 特别是 \[
+z=\omega_0,
+\] 这与 \[
+z\in\ell^1,\qquad\omega_0\notin\ell^1
+\] 矛盾。
+
+\textbf{这里没有将非实际端点插入图中；恰恰是在证明，任何中间的实际 polar 查询都要求一个不可能的 $\ell^1$ 质量。}
+
+因此， \[
+\boxed{
+(\operatorname{gra}A)^\mu=\operatorname{gra}A.
+}
+\tag{18}
+\]
+
+这证明了原始完整 $c_0(I)\times\ell^1(I)$ 对偶对中的极大性。
+
+\section{四、有限斜率与缺失原点同时成立}\label{ux56dbux6709ux9650ux659cux7387ux4e0eux7f3aux5931ux539fux70b9ux540cux65f6ux6210ux7acb}
+
+对任何 $a\in D$，令 $t=r(a)$。由式（3）， \[
+|\langle La,g\rangle|=|t|>1.
+\] 由于 $\|g\|_1=2$， \[
+\|La\|_\infty>\frac12.
+\tag{19}
+\]
+
+所以 \[
+0\notin\operatorname{dom}A.
+\]
+
+另一方面， \[
+\begin{aligned}
+\langle La,a\rangle
+&=t^2-\|F(t)\|_2^2\\
+&=t^2-1-\|\omega_{|t|-1}\|_2^2\\
+&>-\sigma.
+\end{aligned}
+\]
+
+结合式（19），得到对\textbf{全部实际图行} \[
+\boxed{
+\langle La,a\rangle
+\ge-2\sigma\|La\|_\infty,
+\qquad 2\sigma<\frac14.
+}
+\tag{20}
+\]
+
+至此，已经不是``有限斜率种子可能怎样极大化''，而是整张已证明极大的图本身具有有限斜率，且缺失原点。
+
+\section{\texorpdfstring{五、把这个完整对象提升到标准 $\ell^1$}{五、把这个完整对象提升到标准 \textbackslash ell\^{}1}}\label{ux4e94ux628aux8fd9ux4e2aux5b8cux6574ux5bf9ux8c61ux63d0ux5347ux5230ux6807ux51c6-ell1}
+
+这一步必须证明满射，不能只给稠密值域。
+
+在 $c_0(I)$ 的单位球中，枚举所有有限支撑、有理坐标的向量： \[
+q_1,q_2,\ldots .
+\] 它们范数稠密，并包含单位坐标向量。
+
+定义 \[
+Q:\ell^1(\mathbb N)\to c_0(I),
+\qquad
+Qu=\sum_{n\ge1}u_nq_n.
+\tag{21}
+\] 级数绝对收敛，且 $\|Q\|=1$。
+
+\subsection{\texorpdfstring{1. $Q$ 确实满射}{1. Q 确实满射}}\label{q-ux786eux5b9eux6ee1ux5c04}
+
+给定 $x\in c_0(I)$，置 $r_0=x$。只要 $r_k\ne0$，选择 $q_{n_k}$ 满足 \[
+\left\|q_{n_k}-\frac{r_k}{\|r_k\|_\infty}\right\|_\infty<\frac12,
+\] 并置 \[
+r_{k+1}=r_k-\|r_k\|_\infty q_{n_k}.
+\]
+
+于是 \[
+\|r_{k+1}\|_\infty\le\frac12\|r_k\|_\infty,
+\qquad
+\sum_k\|r_k\|_\infty\le2\|x\|_\infty,
+\] 且 \[
+x=\sum_k\|r_k\|_\infty q_{n_k}.
+\]
+
+将重复索引的系数相加，就得到实际 $u\in\ell^1$，满足 \[
+\boxed{
+Qu=x,\qquad\|u\|_1\le2\|x\|_\infty.
+}
+\tag{22}
+\]
+
+因此 $Q$ 是满射。
+
+\subsection{\texorpdfstring{2. 定义标准 $\ell^1$ 上的整张图}{2. 定义标准 \textbackslash ell\^{}1 上的整张图}}\label{ux5b9aux4e49ux6807ux51c6-ell1-ux4e0aux7684ux6574ux5f20ux56fe}
+
+伴随明确为 \[
+(Q^*a)_n=\langle q_n,a\rangle.
+\]
+
+定义 \[
+\boxed{
+\operatorname{gra}T
+=
+\{(u,Q^*a):a\in D,\ Qu=La\}.
+}
+\tag{23}
+\]
+
+非空性来自 $D\ne\varnothing$ 和 $Q$ 满射。单调性来自 \[
+\langle u-v,Q^*(a-b)\rangle
+=\langle La-Lb,a-b\rangle\ge0.
+\]
+
+\subsection{\texorpdfstring{3. 检查完整 $\ell^\infty$ 中的任意 polar 标签}{3. 检查完整 \textbackslash ell\^{}\textbackslash infty 中的任意 polar 标签}}\label{ux68c0ux67e5ux5b8cux6574-ellinfty-ux4e2dux7684ux4efbux610f-polar-ux6807ux7b7e}
+
+设 \[
+(v,v^*)\in\ell^1\times\ell^\infty
+\] 与式（23）的全部行单调相关。
+
+固定一条实际行 $(u_0,Q^*a_0)$。对所有 $k\in\ker Q$、$\theta\in\mathbb R$， \[
+(u_0+\theta k,Q^*a_0)
+\] 仍是实际行。测试全部正负 $\theta$，得到 \[
+\langle k,v^*\rangle=0
+\qquad(k\in\ker Q).
+\tag{24}
+\]
+
+对 $x\in c_0(I)$，选任意 $u$ 满足 $Qu=x$，定义 \[
+p(x)=\langle u,v^*\rangle.
+\]
+
+式（24）保证定义与原像选择无关，而且它是线性的。式（22）给出 \[
+|p(x)|\le2\|v^*\|_\infty\|x\|_\infty.
+\] 所以 \[
+p\in(c_0(I))^*=\ell^1(I),
+\qquad v^*=Q^*p.
+\tag{25}
+\]
+
+现在对任意 $a\in D$，取 $u$ 满足 $Qu=La$，有 \[
+0\le\langle v-u,v^*-Q^*a\rangle
+=\langle Qv-La,p-a\rangle.
+\]
+
+由 $A$ 已证明的极大性， \[
+p\in D,\qquad Qv=Lp.
+\] 所以 $(v,v^*)$ 属于式（23）。
+
+因此， \[
+\boxed{T\text{ 在完整 }\ell^1\times\ell^\infty\text{ 中极大单调}.}
+\tag{26}
+\]
+
+\subsection{4. 原命题的全部条件}\label{ux539fux547dux9898ux7684ux5168ux90e8ux6761ux4ef6}
+
+若 $0\in\operatorname{dom}T$，则某个 $a\in D$ 满足 \[
+La=Q0=0,
+\] 与式（19）矛盾。因此 \[
+T(0)=\varnothing.
+\]
+
+对任意 $(u,Q^*a)\in\operatorname{gra}T$， \[
+\|u\|_1\ge\|Qu\|_\infty=\|La\|_\infty>\frac12,
+\] 并且 \[
+\langle u,Q^*a\rangle
+=\langle La,a\rangle
+>-\sigma
+\ge-2\sigma\|u\|_1.
+\]
+
+故 \[
+\boxed{
+T(0)=\varnothing,\qquad
+\mathcal V(T)\le2\sigma<\frac14.
+}
+\tag{27}
+\]
+
+\textbf{这里已经回到标准 $\ell^1$ 范数，没有使用等价范数，也没有只在某个较小对偶空间中证明极大性。}
+
+\section{六、直接得到原始 CQ 下的求和反例}\label{ux516dux76f4ux63a5ux5f97ux5230ux539fux59cb-cq-ux4e0bux7684ux6c42ux548cux53cdux4f8b}
+
+令 \[
+f=Q^*g\in\ell^\infty,
+\qquad
+Bu=\langle u,f\rangle f.
+\tag{28}
+\]
+
+因为 $Q$ 满射、$g\ne0$，所以 $f\ne0$。$B$ 全定义、非零、有界线性、正且秩一。
+
+它的极大性可直接证明：若 $(z,z^*)$ 与整个 $B$ 图单调相关，测试 $(z+tw,B(z+tw))$，得到 \[
+-t\langle w,z^*-Bz\rangle
++t^2\langle w,Bw\rangle\ge0
+\qquad(t\in\mathbb R).
+\] 让 $t$ 从正负两侧趋零，便有 \[
+z^*=Bz.
+\]
+
+现在对任意 $(u,Q^*a)\in\operatorname{gra}T$，令 $t=r(a)$，则 \[
+\langle u,f\rangle
+=\langle Qu,g\rangle
+=\langle La,g\rangle=t.
+\]
+
+所以，对\textbf{整个和图的全部实际行}， \[
+\begin{aligned}
+\langle u,Q^*a+Bu\rangle
+&=\langle La,a\rangle+t^2\\
+&=2t^2-1-\|\omega_{|t|-1}\|_2^2\\
+&>1-\sigma>\frac78.
+\end{aligned}
+\tag{29}
+\]
+
+因此 \[
+(0,0)\in(\operatorname{gra}(T+B))^\mu.
+\] 但 $T(0)=\varnothing$，故 \[
+(0,0)\notin\operatorname{gra}(T+B).
+\]
+
+同时， \[
+\operatorname{dom}T\cap\operatorname{int}\operatorname{dom}B
+=\operatorname{dom}T\ne\varnothing.
+\]
+
+于是得到完整的五项核验： \[
+\boxed{
+\begin{gathered}
+T,\ B\text{ 均极大单调},\\
+\operatorname{dom}T\cap\operatorname{int}\operatorname{dom}B\ne\varnothing,\\
+(0,0)\in(\operatorname{gra}(T+B))^\mu,\\
+(0,0)\notin\operatorname{gra}(T+B).
+\end{gathered}}
+\tag{30}
+\]
+
+由于 $T+B$ 单调，加入 $(0,0)$ 后得到其真单调扩张，故 $T+B$ 非极大单调。
+
+由前述 $\Phi$ 和 $\Delta$ 的定义，还可以计算 \[
+\boxed{\Delta_{T,B}(0,0)=\sigma\in(0,\infty).}
+\] 理由是 \[
+\Phi_B(0,p)=
+\begin{cases}
+\frac{\lambda^2}{4},&p=\lambda f,\\
++\infty,&p\notin\mathbb Rf,
+\end{cases}
+\] 当 $p=\lambda f$ 时，该公式来自 $\sup_{s\in\mathbb R}(\lambda s-s^2)=\frac{\lambda^2}{4}$。当 $p\notin\mathbb Rf$ 时，存在 $v\in\ker f$ 使 $\langle v,p\rangle\ne0$，沿 $v$ 的实数倍取上确界即得 $+\infty$。另一方面，由 $\langle u,f\rangle=r(a)$ 及 $Q$ 满射，
+\[
+\Phi_T(0,-\lambda f)
+=\sup_{|t|>1}\bigl(1+\|\omega_{|t|-1}\|_2^2-t^2-\lambda t\bigr).
+\]
+实际参数 $t\downarrow1$ 和 $t\uparrow-1$ 给出 \[
+\Phi_T(0,-\lambda f)\ge\sigma+|\lambda|,
+\qquad
+\Phi_T(0,0)=\sigma.
+\] 因而
+\[
+\Phi_T(0,-\lambda f)+\Phi_B(0,\lambda f)
+\ge\sigma+|\lambda|+\frac{\lambda^2}{4},
+\]
+且 $\lambda=0$ 时取等号，所以 $\Delta_{T,B}(0,0)=\sigma$。
+
+\end{document}
