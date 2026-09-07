@@ -1,0 +1,139 @@
+\section{The structure shared by the examples}
+\label{sec:structure}
+The examples use one obstruction in two different ways. For the determined
+graphs, it proves maximality by computing the entire monotone polar. For
+the selected graphs, it first excludes an entire primal region from the
+polar of a countable seed; the extension argument then supplies a maximal
+graph with a lower pairing bound. The latter argument adds a choice of
+extension, not a new kind of endpoint obstruction.
+
+\subsection{Actual labels and the completed profile}
+The coordinates $r(a)$ and $ma$ preserve the symmetric part of the graph
+pairing:
+\[
+\pair{La-Lb}{a-b}=|r(a)-r(b)|^2-\|ma-mb\|_2^2.
+\]
+Consequently, a Lipschitz curve in the $(r,m)$ coordinates supplies
+monotonicity. The complete kernel fibres supply different information:
+they constrain every polar query to the same scalar comparison, rather
+than merely proving inequalities between the chosen parameter rows.
+Both ingredients are necessary in the proofs above. A parameter curve
+alone is not an assertion of maximality for its image in $X\times X^*$.
+
+In the architecture of Theorem~\ref{thm:endpoint-criterion}, the precise
+criterion is Eq.~\eqref{eq:abs-endpoint-exclusion}. The comparison space
+$\R\oplus H_0$ contains the middle segment $(t,\eta)$, $|t|\le1$,
+but a point on that segment gives a graph point only if an actual
+$p\in X^*$ realizes both $r(p)=t$ and $Mp=(t,\eta)$. The theorem proves
+this statement in both directions. In the concrete construction,
+$mp\in\ell^1$ rules out that realization. Thus passing from actual
+block sums to their $\ell^2$ limits preserves the comparison geometry
+but not the existence of dual labels. No assertion that $\ell^2$ is
+the continuous dual of the original primal space is involved.
+
+The following consequence makes the loss of dual control visible in
+the original Banach spaces, without relying on a picture in the
+comparison space.
+
+\begin{proposition}[Convergent primals and unbounded dual labels]
+\label{prop:boundary-sequences}
+There are sequences of rows common to $A$ and every selected
+$\mathcal A$ of Theorem~\ref{thm:nonconstructive} whose primal
+coordinates converge in $c_0(I)$ to points outside both domains,
+while the norms of their dual coordinates tend to infinity.
+There are also such sequences common to $T$ and the corresponding
+$\mathcal T$ on standard $\ell^1$, with convergence in its norm
+and divergence in the full $\ell^\infty$ dual norm.
+\end{proposition}
+\begin{proof}
+Use $a_n^\pm=a^{\pm(1+1/n)}$ and $x_n^\pm=La_n^\pm$. These rows
+belong to $S_0$, hence to both first graphs on $c_0$.
+Writing $t=\pm(1+1/n)$ and $\epsilon=\sgn t$, direct substitution in
+Eqs.~\eqref{eq:D4}--\eqref{eq:D9} gives the block-zero coordinates
+\[
+(La^t)_{0,1}=-2t-2\epsilon,\qquad
+(La^t)_{0,2}=-3t-2\epsilon,\qquad
+(La^t)_{0,3}=-t-\epsilon,
+\]
+with every later coordinate in that block zero. In each block $b\ge1$,
+only the first primal coordinate is nonzero, and it is
+$-\omega_{1/n}(b)$. The convergence in $\ell^2$ of these tails implies
+convergence in the supremum norm. The two limits $x_\pm$ therefore have
+block-zero coordinates $\mp(4,5,2)$ and positive-block first coordinates
+$-1/(4b)$. They belong to global $c_0(I)$, and
+$\pair{x_\pm}{g}=\pm1$. Neither limit belongs to $\dom A$ or
+$\dom\mathcal A$: the proofs of Theorems~\ref{thm:C} and
+\ref{thm:nonconstructive} exclude every primal with
+$|\pair{x}{g}|\le1$.
+
+On the other hand,
+\[
+\|a_n^\pm\|_1=2(1+1/n)+1+\|\omega_{1/n}\|_1\longrightarrow\infty.
+\]
+To verify the divergence, fix any $N$. The sum of the first $N$ tail
+coordinates tends to $\sum_{b=1}^N1/(4b)$. These partial harmonic sums
+are unbounded as $N\to\infty$, so the full nonnegative tail sums tend
+to infinity. This argument does not exchange two infinite sums.
+
+For each sign choose a lift $u_\pm$ of $x_\pm$ through $Q$.
+The norm-$2$ lifting bound gives $v_n^\pm$ with
+$Qv_n^\pm=x_n^\pm-x_\pm$ and
+$\|v_n^\pm\|_1\le2\|x_n^\pm-x_\pm\|_\infty$.
+Then $u_n^\pm=u_\pm+v_n^\pm\to u_\pm$ in $\ell^1$, and
+$(u_n^\pm,Q^*a_n^\pm)$ belongs to both pullback graphs. The limits
+are outside both domains because their $Q$ images are $x_\pm$.
+Equation~\eqref{eq:L3} gives
+$\|Q^*a_n^\pm\|_\infty=\|a_n^\pm\|_1\to\infty$.
+Only controlled individual lifts were used, not a continuous or linear
+right inverse.
+\end{proof}
+
+\subsection{A lower pairing bound and different second factors}
+The examples separate boundedness of the dual labels from control of
+their pairing with their own primals. Proposition~\ref{prop:boundary-sequences}
+shows that dual norms can diverge along convergent primals. Nevertheless,
+the determined graph has the exact identity
+\[
+\pair{La}{a}=r(a)^2-1-W(|r(a)|-1)>-\sigma,
+\]
+and the selected graph retains the lower bound $-\sigma$ on every row.
+Together with $\|x\|>1/2$, this proves the finite radial bound; it is
+not a premise inferred from a conjectured failure of a sum theorem.
+
+The second factors use that control in different ways. A rank-one factor
+adds $\lambda r(a)^2$ on the determined graph. For $\lambda\ge\sigma$
+the origin is a polar point of the sum. For $0<\lambda<\sigma$, the
+finite-support query in Eq.~\eqref{eq:parameter-query} replaces it;
+the full computation in Proposition~\ref{prop:all-strengths} is needed
+at those strengths. A norm subdifferential instead adds exactly
+$\lambda\|x\|$ for every one of its values, so that the lower bound
+and the missing primal alone suffice. This is why it also works for
+the unspecified first factor in Theorem~\ref{thm:nonconstructive}.
+\ifdefined\expandedversion
+The bounded-domain normal-cone example in Corollary~\ref{cor:normal}
+uses the closed convex set $C_\rho$, which contains $0$. Testing its
+normal inequality at $0$ gives $\pair{x}{n}\ge0$ for every
+$x\in C_\rho$ and every $n\in N_{C_\rho}(x)$. The explicit interior
+witness there verifies the ordered domain condition. That example is a change
+of second factor, not a new independent construction of the first.
+\fi
+
+The extension proof identifies the additional requirement behind the
+nonconstructive family. A lower bound on a seed is not automatically a
+lower bound on its full polar, and inclusion-maximality among graphs
+obeying that bound is not automatically global maximality. The scaled
+polar point in Lemma~\ref{lem:capped-extension} closes precisely this
+gap. At the same time, the seed excludes all dual values above the
+forbidden primal slab, so every resulting maximal extension still omits
+zero. The added row in Eq.~\eqref{eq:nonconstructive-seed} forces the
+new factor to differ from the original one while preserving both
+properties.
+
+These distinctions delimit the representation result as well as its
+use. Theorem~\ref{thm:endpoint-criterion} characterizes maximality for
+the stated full-fibre architecture, not for arbitrary monotone operators.
+The quotient construction changes the Banach carrier and preserves the
+full-dual certificate, not the underlying mechanism. The parameter and
+partner variations describe consequences of that mechanism. None of
+these statements identifies independent discoveries merely by counting
+the resulting counterexamples.
