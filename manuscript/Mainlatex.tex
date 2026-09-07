@@ -1,0 +1,158 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+
+\newtheoremstyle{harduxdefinition}
+{8pt plus 2pt minus 1pt}{8pt plus 2pt minus 1pt}
+{\normalfont}{}{\bfseries}{.}{0.5em}{}
+\newtheoremstyle{harduxplain}
+{8pt plus 2pt minus 1pt}{8pt plus 2pt minus 1pt}
+{\itshape}{}{\bfseries}{.}{0.5em}{}
+\newtheoremstyle{harduxremark}
+{8pt plus 2pt minus 1pt}{8pt plus 2pt minus 1pt}
+{\normalfont}{}{\itshape}{.}{0.5em}{}
+% \theoremstyle{harduxdefinition}
+\newtheorem{definition}{Definition}[section]
+\usepackage{amsthm}
+% \usepackage{lineno}
+% \newtheoremstyle{mydefinition}
+%   {22pt}   % 上方空间
+%   {22pt}   % 下方空间
+%   {\normalfont} % 正文字体
+%   {}       % 缩进
+%   {\bfseries} % 标题字体
+%   {.}      % 标题后标点
+%   {0.5em}  % 标题和正文距离
+%   {}
+% \theoremstyle{mydefinition}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{harduxremark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+
+\makeatletter
+\def\bstctlcite{\@ifnextchar[{\@bstctlcite}{\@bstctlcite[@auxout]}}
+\def\@bstctlcite[#1]#2{\@bsphack
+  \@for\@citeb:=#2\do{%
+    \edef\@citeb{\expandafter\@firstofone\@citeb}%
+    \if@filesw
+      \immediate\write\csname #1\endcsname{\string\citation{\@citeb}}%
+    \fi}%
+  \@esphack}
+\makeatother
+
+
+\DeclareMathOperator{\gra}{gra}
+
+\title{}
+\author{Weifeng Yang\\
+% Yunnan Earthquake Agency, Kunming, China\\
+\texttt{ywf841673182@gmail.com}
+}
+\date{}
+
+\begin{document}
+\bstctlcite{IEEEexample:BSTcontrol}
+\linenumbers
+\maketitle
+
+
+
+
+
+\begin{abstract}
+
+
+
+
+
+\end{abstract}
+
+\noindent\textbf{Keywords:} Haraux function; maximally monotone operator; type~(NI); graph distance; duality mapping.
+
+\medskip
+\noindent\textbf{2020 Mathematics Subject Classification:} 47H05; 47N10, 46A20.
+
+\section{Introduction}
+\label{sec:introduction}
+
+
+
+
+
+
+
+
+\subsection{Contributions}
+
+The contributions of this paper are as follows.
+
+(1) 
+
+
+
+(2) 
+
+
+
+(3) 
+
+
+
+
+The paper is organized as follows. Section~\ref{sec:preliminaries} introduces some preliminary notation and background. Section~\ref{sec:bound} proves the weighted form of quasidensity, establishes the exact decomposition, derives its consequences for the residual infimum, and proves the sharp lower bound. Section~\ref{sec:certificates} investigates exact and approximate residual vanishing, distinguishes the vanishing of the residual infimum from its attainment, and derives a graph distance lower bound for the Fenchel-Young gap.  Conclusions are presented in Section \ref{sec:conclusion}. 
+
+
+
+
+
+
+\section{Preliminaries}
+\label{sec:preliminaries}
+
+
+
+
+
+
+
+
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+
+
+
+
+% \section*{Data Availability Statement}
+
+% No datasets were generated or analyzed during the current study.
+
+
+% \section*{Funding}
+
+% This work was supported by the CEA Youth Key Project on Earthquake Information (No.~CEAITNS202607), the Spark Program of Earthquake Sciences of China Earthquake Administration (XH25033YB), and the Earthquake Science Technology Innovation Team Project of Yunnan Province (CXTD202507). 
+
+% \section*{Ethics Approval}
+
+% Not applicable.
+
+% \section*{Clinical Trial}
+
+% Not applicable.
+
+% \section*{Competing Interests}
+
+% The author declares that there are no competing interests.
+
+\bibliographystyle{IEEEtran}
+\bibliography{refer}
+
+\end{document}

@@ -1,7 +1,7 @@
 # Rockafellar's Sum Problem
 
-## Results
+This repository provides a synchronized backup of the corresponding Overleaf project and preserves the manuscript's development history on GitHub. Overleaf is used for editing the manuscript, while GitHub maintains an independent archive of its source files and revisions. Updates made in Overleaf are reflected here as Git commits with their original timestamps, keeping the repository aligned with the manuscript as it develops and providing an independent backup for version tracking and recovery.
 
-Explicit counterexamples are obtained on $c_0$ and standard $\ell^1$.
+Current manuscript revision: 001
 
-A general construction theorem provides an abstract mechanism for constructing maximally monotone operators whose sum with a positive rank-one operator is not maximally monotone.
+## Abstract
