@@ -1,0 +1,60 @@
+\section{The mechanism of the counterexample}
+\label{sec:structure}
+The construction uses the coordinates $r(a)$ and $ma$ to express the
+symmetric part of the graph pairing:
+\[
+\pair{La-Lb}{a-b}=|r(a)-r(b)|^2-\|ma-mb\|_2^2.
+\]
+A Lipschitz curve in these coordinates makes the graph monotone.
+Maximality requires the additional information supplied by the complete
+affine fibres. Testing every kernel direction forces an arbitrary polar
+query to have the scalar form in Eq.~\eqref{eq:abs-polar-square}.
+At an exterior parameter this form returns an actual graph point.
+Over the middle interval, the two endpoint comparisons force the
+completed profile $(\tau,\eta)$.
+
+Theorem~\ref{thm:endpoint-criterion} gives the exact distinction:
+the completed profile contributes a polar point precisely when
+some $p\in X^*$ satisfies both $r(p)=\tau$ and $Mp=(\tau,\eta)$.
+For the constructed operator, $mp\in\ell^1$ and
+$\eta=(1/(4n))_{n\ge1}\notin\ell^1$. Thus the comparison geometry
+has a middle segment with no continuous-dual labels realizing it.
+The proof takes limits in the comparison space; it never enlarges
+the dual space of $c_0$.
+
+This failure of realization can also be seen along actual graph rows.
+Set $t_n^\pm=\pm(1+1/n)$, $a_n^\pm=a^{t_n^\pm}$, and
+$x_n^\pm=La_n^\pm$. For $t\in J$ and $\epsilon=\sgn t$,
+direct substitution in Eqs.~\eqref{eq:D4}--\eqref{eq:D9} gives
+\[
+(La^t)_{0,1}=-2t-2\epsilon,\qquad
+(La^t)_{0,2}=-3t-2\epsilon,\qquad
+(La^t)_{0,3}=-t-\epsilon,
+\]
+with the remaining block-zero coordinates zero. In block $b\ge1$,
+the only nonzero coordinate is $-\omega_{|t|-1}(b)$ at index $1$.
+Consequently, $x_n^\pm$ converge in the supremum norm to
+$x_\pm\in c_0(I)$ with block-zero coordinates $\mp(4,5,2)$ and
+positive-block first coordinates $-1/(4b)$. Indeed, convergence of
+the tails in $\ell^2$ implies convergence in the supremum norm.
+The limits satisfy $\pair{x_\pm}{g}=\pm1$ and lie outside $\dom A$.
+On the other hand,
+\[
+\|a_n^\pm\|_1=2(1+1/n)+1+\|\omega_{1/n}\|_1\longrightarrow\infty.
+\]
+For each fixed $N$, the sum of the first $N$ tail coordinates tends to
+$\sum_{b=1}^N1/(4b)$; these partial sums are unbounded. This proves
+the divergence without asserting convergence of the labels in the dual.
+
+The sum obstruction uses a different consequence of the pairing identity.
+Every row of the first graph satisfies
+\[
+\pair{La}{a}=r(a)^2-1-W(|r(a)|-1)>-\sigma,\qquad
+\|La\|_\infty>1/2.
+\]
+These inequalities prove $\mathcal V(\gra A)\le2\sigma$ directly.
+The second factor adds exactly $r(a)^2$, making the pairing positive
+on the entire sum graph. Since zero remains outside the domain,
+$(0,0)$ is a missing polar point of the sum. The finite radial bound
+is thus an output of the construction, not an assumed universal
+property or an unproved consequence of the desired counterexample.
