@@ -6,6 +6,12 @@ We construct counterexamples to Rockafellar's sum conjecture on $c_0$ and standa
 
 This package contains Lean proofs for the counterexample on $c_0$ and the general pullback lemma in the paper [1].
 
+## Lean proofs
+
+The Lean directory contains the formalization of the counterexample on $c_0$ and a general theorem for transferring maximal monotonicity through a bounded linear surjection.
+
+See Lean/README.md for the formalization scope, main files, dependencies and build instructions.
+
 
 ## Reference
 
