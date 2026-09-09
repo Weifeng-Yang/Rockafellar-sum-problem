@@ -1,0 +1,1023 @@
+\def\PrivateAuthorBlock{\begin{tabular}{c}
+Weifeng Yang\footnotemark
+% Yunnan Earthquake Agency, Kunming, China\\
+\end{tabular}}
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\setlength{\textwidth}{6.3in}
+\setlength{\oddsidemargin}{0.1in}
+\setlength{\evensidemargin}{0.1in}
+\setlength{\textheight}{8.6in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\headheight}{14pt}
+\setlength{\headsep}{22pt}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{3pt}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Nzero}{\mathbb N_0}
+\newcommand{\gra}{\operatorname{gra}}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\pair}[2]{\langle #1,#2\rangle}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\dist}{\operatorname{dist}}
+\pagestyle{plain}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Nonmaximal sums of maximally monotone operators under Rockafellar’s constraint qualification}\\[10pt]
+\PrivateAuthorBlock\\[10pt]
+% September 7, 2026\\[4pt]
+ % Main manuscript
+\end{center}
+\footnotetext{\texttt{Email:ywf841673182@gmail.com}}
+
+
+\begin{abstract}
+
+We construct counterexamples to Rockafellar's sum conjecture in which two maximally monotone operators satisfy the interior-domain condition but their sum is not maximally monotone. The examples are defined on $c_0$ and standard $\ell^1$, with one summand a bounded positive rank-one operator
+defined on the whole space. We first compute the entire monotone polar of a class of graphs and characterize their maximal monotonicity by the
+solvability of explicit equations in the original continuous dual.
+For the construction on $c_0$, we couple triangular operators through a Lipschitz curve of block sums. The positive-index coordinates of each
+curve value have finite support, and their common limit at the two deleted endpoints belongs to $\ell^2\setminus\ell^1$. The polar formula
+shows that any additional polar point would require these nonsummable coordinates in the continuous dual, proving maximality. An exact pairing identity then proves nonmaximality of the sum and a finite radial bound for the first operator. A bounded surjection transfers the construction to standard $\ell^1$, where maximality is proved in the full $\ell^1\times\ell^\infty$ pair. 
+
+\end{abstract}
+
+\noindent\textbf{Keywords:} maximally monotone operator; sum theorem;
+nonreflexive Banach space; monotone polar; rank-one operator.
+
+\section{Introduction}
+\label{sec:introduction}
+Let $X$ be a real Banach space, let $X^*$ be its continuous dual, and let
+$A,B:X\rightrightarrows X^*$ be maximally monotone operators. Their pointwise
+sum is defined by $(A+B)x=\{a+b:a\in Ax,\ b\in Bx\}$. Rockafellar's sum
+theorem \cite{rockafellar1970} states that $A+B$ is maximally monotone when
+$X$ is reflexive and
+\begin{equation}
+\dom A\cap\operatorname{int}(\dom B)\ne\varnothing.
+\label{eq:original-cq}
+\end{equation}
+The unrestricted sum question asks whether Eq.~\eqref{eq:original-cq}
+alone is sufficient on an arbitrary real Banach space. The interior here
+is taken in the norm topology of $X$, and maximality is taken in the full
+pair $X\times X^*$. 
+
+Several positive results extend the theorem by imposing structure on one
+of the factors. Yao \cite{yao2010} proves maximality when the first factor
+is of type~(FPV) and the second factor has full domain. Borwein and Yao
+\cite{borweinyao2012} prove the sum theorem under
+Eq.~\eqref{eq:original-cq} when the first factor is a linear relation.
+The factor order in the latter qualification matters: placing a
+full-domain linear operator first would require interior points in the
+domain of the other factor. These results motivate the question of
+whether an elementary full-domain second factor can already produce a
+nonmaximal sum with a nonlinear first factor.
+Normal-cone partners under type~(FPV) hypotheses are treated by Voisei
+\cite{voisei2010}. At the universal level, Bo\c{t}, Bueno, and Simons
+\cite{botbuenosimons2016} show that restricting the sum question to pairs
+with bounded common domain does not weaken it. 
+
+Convex representations provide a second way to address these questions.
+Fitzpatrick \cite{fitzpatrick1988} associates a convex function with a
+monotone graph. Burachik and Svaiter \cite{burachiksvaiter2002} study the
+associated family of convex representatives through enlargements, and
+Penot \cite{penot2004} develops representation methods for compositions
+and sums in the reflexive setting. For nonmaximal graphs,
+representability and maximality must still be distinguished, 
+Mart\'{i}nez-Legaz and Svaiter \cite{martinezsvaiter2005} study this
+distinction, including unique maximal extensions in finite dimensions.
+Bueno, Mart\'{i}nez-Legaz,
+and Svaiter \cite{buenomartinezsvaiter2014} compare representable and
+monotone-polar closures. 
+Marques Alves and Svaiter \cite{marquessvaiter2012} prove a sum theorem
+under a qualification on domains of Fitzpatrick representations.
+Such a qualification must be checked on those representations; it cannot
+be replaced without proof by Eq.~\eqref{eq:original-cq}.
+
+Nonreflexive constructions provide a concrete setting for the sum question.
+Gossez's work \cite{gossez1971} develops monotone-operator theory beyond
+reflexive spaces. The dense-type class has additional structure:
+Marques Alves and Svaiter \cite{marquessvaiter2010} identify types~(D)
+and~(NI), and Bauschke, Borwein, Wang, and Yao \cite{bauschkefp2012}
+prove that Fitzpatrick--Phelps type~(FP) implies dense type.
+Type~(FP) here is not type~(FPV). These results distinguish important
+subclasses; none of these type assumptions is imposed in the question above.
+Bueno and Svaiter \cite{buenosvaiter2011} construct a non-type~(D)
+maximally monotone operator on $c_0$. Bauschke, Borwein, Wang, and Yao
+\cite{bauschkeetal2011} develop a family of triangular operators and
+further nonlinear examples. 
+% In particular, Example~4.1 of their
+% August~6, 2011 author version contains
+% the single-block triangular map used below. These earlier ingredients
+% give exact pairing identities. To obtain the sum behavior considered
+% here, we impose an additional constraint on the sums over countably many
+% blocks and verify maximality for every point of the full monotone polar.
+
+In this paper, we define a $1$-Lipschitz map
+$F:J\to\ell^1(\Nzero)\subset\ell^2(\Nzero)$, where
+$J=(-\infty,-1)\cup(1,\infty)$. Its positive-index coordinates have finite
+support for each actual parameter. At both deleted endpoints they tend,
+coordinatewise and in $\ell^2$, to
+$(1/(4n))_{n\ge1}$, which is not in $\ell^1$.
+The triangular pairing identity first proves monotonicity. The complete
+affine fibres of the graph then reduce the condition for an arbitrary
+polar point to
+\begin{equation}
+\|F(t)-m_p\|_2^2+\nu^2\le(t-\tau)^2
+\qquad(t\in J),
+\label{eq:polar-intro}
+\end{equation}
+where $p$ is the dual component of the polar point,
+$m_p=(\sum_j p_{b,j})_{b\ge0}\in\ell^1(\Nzero)$ is its sequence of
+block sums, and $\tau,\nu\in\R$. If $|\tau|>1$, the test $t=\tau$ returns a graph
+point. If $|\tau|\le1$, limits in $\ell^2$ at the two endpoints
+force the positive-index coordinates of $m_p$ to equal $1/(4n)$.
+Their nonsummability excludes this second case and proves maximality.
+
+The resulting first factor $A$ has nonempty domain at positive distance
+from zero. Its construction also gives
+$\langle x,a\rangle>-\sigma$ on $\gra A$, with
+$\sigma=\pi^2/96<1/8$. We choose
+$Px=\langle x,g\rangle g$ for a specified nonzero $g\in(c_0)^*$.
+This factor is also the subdifferential of the continuous convex quadratic
+$x\mapsto\langle x,g\rangle^2/2$, consistent with Rockafellar's
+subdifferential maximality theorem \cite{rockafellar1970subdiff}.
+We give a direct maximality proof for $P$ below.
+The same pairing identity gives
+$\langle x,a+Px\rangle>1-\sigma$ for every $(x,a)\in\gra A$.
+Thus $(0,0)$ is monotonically related to the entire sum and is not in
+its graph. The full domain of $P$ makes
+Eq.~\eqref{eq:original-cq} immediate from nonemptiness of $\dom A$.
+
+\subsection{Contributions}
+The contributions of this paper are as follows.
+
+(1) We give a counterexample to Rockafellar's sum conjecture on $c_0$
+(Example~\ref{thm:C}). The second operator is bounded, positive, rank-one
+and defined everywhere. The first operator has nonempty domain, so the
+original interior-domain condition holds. We prove maximality of both
+operators and exhibit a point monotonically related to their sum that
+does not belong to its graph.
+
+(2) We establish a formula for the entire monotone polar of the graph
+class in Eq.~\eqref{eq:abs-full-graph} and a necessary and sufficient
+condition for maximality (Theorem~\ref{thm:endpoint-criterion}). The proof
+separates the roles of the pairing identity, the complete affine fibres
+and the original continuous dual. It also yields a finite radial bound
+and the rank-one perturbation that makes the sum nonmaximal. 
+
+(3) We construct a counterexample on standard $\ell^1$
+(Example~\ref{thm:L}) by pulling back the first operator through a
+specified bounded surjection onto $c_0$. Tests along the kernel force
+every polar dual component to factor through the surjection, proving
+maximality against the entire $\ell^\infty$ dual. This transfers the same
+failure mechanism to a second Banach space. 
+
+The paper is organized as follows. Section~\ref{sec:definitions}
+introduces the notation and basic definitions.
+Section~\ref{sec:endpoint-criterion} proves the structural theorem and
+the pullback lemma. Section~\ref{sec:counterexamples} constructs the
+counterexamples on $c_0$ and standard $\ell^1$ and derives their stated
+consequences. Section~\ref{sec:conclusion} concludes the paper.
+
+
+\section{Preliminaries}
+\label{sec:definitions}
+All scalars are real. Put $\N=\{1,2,\ldots\}$ and $\Nzero=\{0,1,\ldots\}$.
+The continuous dual of a Banach space $X$ is denoted by $X^*$, and
+$\pair{x}{a}$ denotes its duality pairing. We use the norm topology for
+interiors and closures unless stated otherwise.
+
+\begin{definition}[Monotonicity and the monotone polar]
+For a graph $G\subset X\times X^*$, define
+\begin{equation}
+G^\mu=\{(z,p)\in X\times X^*:
+ \pair{z-x}{p-a}\ge0\quad\forall(x,a)\in G\}.
+\label{eq:D1}
+\end{equation}
+The graph is monotone when $\pair{x-y}{a-b}\ge0$ for all
+$(x,a),(y,b)\in G$,
+and maximally monotone when it has no proper monotone extension in this same
+full dual pair.
+\end{definition}
+
+For a monotone $G$, $G=G^\mu$ is equivalent to maximality: a point in
+$G^\mu\setminus G$ can be adjoined to $G$, and every point of a monotone
+extension belongs to $G^\mu$. We write
+$\dom G=\{x:\exists a,\ (x,a)\in G\}$ and
+$\operatorname{ran}G=\{a:\exists x,\ (x,a)\in G\}$.
+
+
+\begin{definition}[Radial bound at the origin]
+For a nonempty graph $G$ with $0\notin\dom G$, define
+\begin{equation}
+\mathcal V(G)=\sup_{(x,a)\in G}
+ \frac{\max\{0,-\pair{x}{a}\}}{\|x\|}.
+\label{eq:D3}
+\end{equation}
+\end{definition}
+At $(0,0)$, this is the nonnegative slope used by Verona and Verona
+\cite{verona2008}. The finite upper bounds proved below are properties
+of the constructed graphs, not an assumed general bound from that source.
+
+\section{Maximal monotonicity and nonmaximal sums}
+\label{sec:endpoint-criterion}
+We first isolate the properties that determine the entire monotone polar.
+The bilinear identity below makes a Lipschitz constraint monotone, and
+the complete affine fibres reduce arbitrary polar points to a scalar
+comparison. The two endpoint comparisons then identify exactly which
+additional continuous-dual labels could extend the graph. The theorem
+concerns the stated class of graphs; its assumptions will be verified
+for the coordinate construction.
+
+Let $X$ be a real Banach space and let $H_0$ be a real Hilbert space.
+In this section, put $H=\R\oplus H_0$. Let
+$E:X^*\to X$ and $M:X^*\to H$ be bounded linear maps, and let
+$g\in X^*\setminus\{0\}$ satisfy $Mg=0$ and
+\begin{equation}
+\pair{Ea}{b}+\pair{Eb}{a}=2(Ma,Mb)_H
+\qquad(a,b\in X^*).
+\label{eq:abs-bilinear}
+\end{equation}
+Define $h=Eg$, $r(a)=\pair{h}{a}$, $La=-Ea+r(a)h$, and
+$K=\ker M\cap\ker r$. Assume the exact primal annihilator identity
+\begin{equation}
+\{x\in X:\pair{x}{k}=0\ \hbox{for all }k\in K\}=\R h.
+\label{eq:abs-annihilator}
+\end{equation}
+Let $\omega:(0,\infty)\to H_0$ be $\ell$-Lipschitz, where
+$0\le\ell\le1$, and suppose
+\begin{equation}
+\omega(s)\longrightarrow\eta\text{ in }H_0\quad(s\downarrow0),
+\qquad 0<S:=\|\eta\|^2<1,\qquad \|\omega(s)\|^2\le S.
+\label{eq:abs-tail}
+\end{equation}
+Put $J=(-\infty,-1)\cup(1,\infty)$ and
+$F(t)=(\sgn t,\omega(|t|-1))$. For every $t\in J$, assume
+there exists an actual $a^t\in X^*$ with $r(a^t)=t$ and
+$Ma^t=F(t)$. We include every $a\in X^*$ with these values, defining
+\begin{equation}
+D=\{a\in X^*:r(a)\in J,\ Ma=F(r(a))\},\qquad
+G=\{(La,a):a\in D\}.
+\label{eq:abs-full-graph}
+\end{equation}
+In particular, each parameter fibre is $a^t+K$, without a boundedness
+or continuity assumption on the choice $t\mapsto a^t$.
+
+Under the preceding assumptions, we have the following theorem. 
+
+\begin{theorem}[Monotone polar and maximality]
+\label{thm:endpoint-criterion}
+Define
+\[
+\widehat F(t)=
+\begin{cases}
+F(t),&|t|>1,\\
+(t,\eta),&|t|\le1.
+\end{cases}
+\]
+Then the entire monotone polar in $X\times X^*$ is
+\begin{equation}
+G^\mu=\{(Lp,p):p\in X^*,\ Mp=\widehat F(r(p))\}.
+\label{eq:abs-entire-polar}
+\end{equation}
+It is the unique maximally monotone extension of $G$. Moreover, $G$
+itself is maximally monotone if and only if
+\begin{equation}
+\nexists(p,\tau)\in X^*\times[-1,1]:
+\qquad r(p)=\tau,\quad Mp=(\tau,\eta).
+\label{eq:abs-endpoint-exclusion}
+\end{equation}
+When Eq.~\eqref{eq:abs-endpoint-exclusion} holds, the operator
+$\mathcal A$ with graph $G$ satisfies $0\notin\dom\mathcal A$ and
+$\mathcal V(G)\le S\|g\|$. With
+$\mathcal P x=\pair{x}{g}g$, both $\mathcal A$ and $\mathcal P$
+are maximally monotone, satisfy
+$\dom\mathcal A\cap\operatorname{int}\dom\mathcal P\ne\varnothing$,
+and have a nonmaximal sum, i.e., $(0,0)$ belongs to its monotone polar
+and lies outside its graph.
+\end{theorem}
+\begin{proof}
+Equation~\eqref{eq:abs-bilinear} at $a=b=g$ gives $r(g)=0$.
+Using $Mg=0$ again gives
+\begin{equation}
+\pair{Ea}{g}=-r(a),\quad \pair{La}{g}=r(a),\quad
+\pair{La-Lb}{a-b}=|r(a)-r(b)|^2-\|Ma-Mb\|^2.
+\label{eq:abs-pairing}
+\end{equation}
+The equality $r(a^2)=2$ also proves $h\ne0$.
+
+Extend $\omega$ to zero by $\omega(0)=\eta$; its Lipschitz bound
+persists by the norm limit. Define
+$\chi(t)=\max\{-1,\min\{1,t\}\}$ and
+$\zeta(t)=\max\{|t|-1,0\}$. Then
+$\widehat F(t)=(\chi(t),\omega(\zeta(t)))$.
+If $t,u$ lie on the same exterior branch, in the middle interval,
+or one in the middle and one outside, the nonnegative changes in
+$\chi$ and $\zeta$ add to $|t-u|$. On opposite exterior branches
+they sum to $2+||t|-|u||\le|t-u|$. Thus in all cases
+\[
+|\chi(t)-\chi(u)|+|\zeta(t)-\zeta(u)|\le|t-u|,
+\]
+and
+\[
+\|\widehat F(t)-\widehat F(u)\|^2
+\le|\chi(t)-\chi(u)|^2+\ell^2|\zeta(t)-\zeta(u)|^2
+\le|t-u|^2.
+\]
+Equation~\eqref{eq:abs-pairing} proves monotonicity of both $G$
+and the set on the right of Eq.~\eqref{eq:abs-entire-polar}.
+It also proves that this latter set is contained in $G^\mu$.
+
+For the reverse inclusion, take an arbitrary $(x,p)\in G^\mu$,
+where $p$ belongs to the full continuous dual. For $a\in D$ and
+$t=r(a)$, expansion using Eq.~\eqref{eq:abs-bilinear} gives
+\begin{align*}
+\pair{x-La}{p-a}
+={}&\pair{x}{p}-\pair{x+Ep}{a}
+       +2(Ma,Mp)-t r(p)+t^2-\|Ma\|^2.
+\end{align*}
+Replacing $a$ by $a+\theta k$, for all $\theta\in\R$ and
+$k\in K$, forces $\pair{x+Ep}{k}=0$. Hence
+$x=-Ep+v h$ by Eq.~\eqref{eq:abs-annihilator}. With
+\[
+\tau=\frac{v+r(p)}2,\qquad \nu=\frac{v-r(p)}2,
+\]
+the same expansion reduces exactly to
+\begin{equation}
+\pair{x-La}{p-a}=(t-\tau)^2-\nu^2-\|F(t)-Mp\|^2.
+\label{eq:abs-polar-square}
+\end{equation}
+Every $t\in J$ is an actual test. If $|\tau|>1$, testing
+$t=\tau$ forces $\nu=0$ and $Mp=F(\tau)$; thus
+$v=r(p)=\tau$ and $x=Lp$.
+
+If $|\tau|\le1$, write $Mp=(b,z)\in\R\oplus H_0$.
+Limits along the two actual branches yield
+\[
+(b-1)^2+\|z-\eta\|^2+\nu^2\le(1-\tau)^2,
+\qquad
+(b+1)^2+\|z-\eta\|^2+\nu^2\le(1+\tau)^2.
+\]
+Multiply these by $(1+\tau)/2$ and $(1-\tau)/2$, respectively,
+and add. Expansion gives
+\[
+(b-\tau)^2+\|z-\eta\|^2+\nu^2\le0.
+\]
+The endpoint weights remain valid at $\tau=\pm1$.
+Consequently $Mp=(\tau,\eta)$, $r(p)=v=\tau$, and $x=Lp$.
+This proves Eq.~\eqref{eq:abs-entire-polar}. The norm limits were
+taken in $H$, not in $X^*$; the label $p$ was actual from the start.
+
+We have proved that $G^\mu$ is monotone. Any point related to it
+is related to $G$ and therefore belongs to $G^\mu$, so $G^\mu$
+is maximally monotone. Every monotone extension of $G$ lies in
+$G^\mu$; hence a maximal one must equal it. The missing part
+$G^\mu\setminus G$ consists exactly of the points $(Lp,p)$ for which
+$r(p)\in[-1,1]$ and $Mp=(r(p),\eta)$, as in
+Eq.~\eqref{eq:abs-endpoint-exclusion}. This proves the criterion.
+
+Finally, each $a\in D$ gives
+\[
+|\pair{La}{g}|=|r(a)|>1,\quad
+\|La\|>1/\|g\|,\quad
+\pair{La}{a}=r(a)^2-1-\|\omega(|r(a)|-1)\|^2>-S.
+\]
+Thus $0\notin\dom\mathcal A$ and, for every $a\in D$,
+\[
+\frac{\max\{0,-\pair{La}{a}\}}{\|La\|}
+\le\frac{S}{\|La\|}<S\|g\|.
+\]
+Taking the supremum proves the stated whole-graph radial bound.
+The map $\mathcal P$ is bounded, linear, positive, nonzero, and full-domain.
+Its monotonicity follows from
+$\pair{x-y}{\mathcal Px-\mathcal Py}=\pair{x-y}{g}^2$.
+For an arbitrary point $(z,z^*)$ in its polar, tests at $z+tv$ give
+\[
+-t\pair{v}{z^*-\mathcal Pz}+t^2\pair{v}{g}^2\ge0
+\qquad(t\in\R,\ v\in X).
+\]
+Both signs of arbitrarily small $t$ force $z^*=\mathcal Pz$.
+Thus $\mathcal P$ is maximally monotone, and $La^2\in\dom\mathcal A$
+proves $\dom\mathcal A\cap\operatorname{int}\dom\mathcal P\ne\varnothing$.
+For every $a\in D$,
+\[
+\pair{La}{a+\mathcal PLa}
+=2r(a)^2-1-\|\omega(|r(a)|-1)\|^2>1-S>0.
+\]
+The sum is monotone and its domain does not contain zero. Adjoining $(0,0)$
+is a proper monotone extension.
+\end{proof}
+
+The three conclusions use different parts of the argument. The Lipschitz
+bound and Eq.~\eqref{eq:abs-pairing} prove monotonicity. The complete
+fibres and Eq.~\eqref{eq:abs-endpoint-exclusion} prove maximality in the
+original dual pair. Finally, the rank-one factor adds $r(a)^2$ to the
+pairing, giving a positive bracket with the missing origin at every point
+of the sum graph. A limit of profiles in $H$ contributes a polar point only when an
+actual element of $X^*$ realizes both of its prescribed coordinates.
+
+Therefore, we prove the following lemma that is used to transport the construction.
+We include its proof to specify the role of arbitrary continuous-dual
+labels and of the controlled preimages. 
+
+\begin{lemma}[Pullback by a bounded surjection]
+\label{lem:surjection-transport}
+Let $U,V$ be real Banach spaces and let $Q:U\to V$ be a bounded
+linear surjection. Suppose $C_Q>0$ and every $y\in V$ has a preimage
+$u\in U$ with $\|u\|\le C_Q\|y\|$. If
+$\mathcal M:V\rightrightarrows V^*$ is maximally monotone, then
+\[
+\gra(Q^*\mathcal M Q)
+=\{(u,Q^*a):(Qu,a)\in\gra\mathcal M\}
+\]
+is maximally monotone in the full pair $U\times U^*$.
+\end{lemma}
+\begin{proof}
+A maximally monotone graph is nonempty, since the empty graph admits
+a one-point monotone extension. Surjectivity therefore makes the
+pullback graph nonempty. For two of its points,
+\[
+\pair{u-v}{Q^*(a-b)}=\pair{Qu-Qv}{a-b}\ge0,
+\]
+so it is monotone.
+
+Let $(v,v^*)\in U\times U^*$ be related to this entire graph. Fix
+$(u,Q^*a)$ in the graph. For each $k\in\ker Q$, all $(u+t k,Q^*a)$ belong to it,
+and their polar inequalities have the form
+\[
+\pair{v-u}{v^*-Q^*a}-t\pair{k}{v^*}\ge0
+\qquad(t\in\R).
+\]
+Thus $v^*$ annihilates $\ker Q$. Define $p(y)=\pair{u}{v^*}$ when
+$Qu=y$. Differences of preimages prove well-definedness, and linear
+combinations of preimages prove linearity. The prescribed lifting bound
+gives $|p(y)|\le C_Q\|v^*\|\|y\|$, so $p\in V^*$ and $v^*=Q^*p$.
+For every $(y,a)\in\gra\mathcal M$, choose $u\in U$ with $Qu=y$.
+Then $(u,Q^*a)$ belongs to the pullback graph. The remaining
+inequalities are
+\[
+\pair{Qv-y}{p-a}\ge0\qquad((y,a)\in\gra\mathcal M).
+\]
+Maximality of $\mathcal M$ gives $(Qv,p)\in\gra\mathcal M$, and hence
+$(v,v^*)$ belongs to the pullback graph.
+\end{proof}
+
+We next use Theorem~\ref{thm:endpoint-criterion} to construct a
+counterexample on $c_0$ and then apply Lemma~\ref{lem:surjection-transport}
+to obtain one on standard $\ell^1$.
+
+\section{Counterexamples on $c_0$ and standard $\ell^1$}
+\label{sec:counterexamples}
+We first verify the structural theorem for explicit operators on $c_0$.
+A bounded surjection then defines operators on standard $\ell^1$, whose
+maximality and sum failure are proved in the full continuous dual pair.
+
+\subsection{A counterexample on $c_0$}
+
+Put $I=\Nzero\times\N$ and $Y=c_0(I)$ with the supremum norm.
+For every $x\in Y$ and $\epsilon>0$, only finitely many $(b,j)\in I$
+satisfy $|x_{b,j}|\ge\epsilon$. Its full continuous dual is $\ell^1(I)$,
+with $\pair{x}{a}=\sum_{b,j}x_{b,j}a_{b,j}$. We also use this pairing
+for $x\in\ell^\infty(I)$ and $a\in\ell^1(I)$.
+The unit coordinate vectors are denoted by $e_{b,j}$.
+
+We index coordinates by blocks. The map $m$ records the sum in each block,
+and $E$ applies a triangular operator within that block. Its single-block
+formula is the $\alpha=(1,1,\ldots)$ case of
+\cite[author version, Example~4.1]{bauschkeetal2011}; the additional constraint below
+couples the block sums through $F$.
+\begin{definition}[Block maps]
+For $a\in\ell^1(I)$, define
+\begin{equation}
+(ma)_b=\sum_{j\ge1}a_{b,j},\qquad
+(Ea)_{b,j}=a_{b,j}+2\sum_{k>j}a_{b,k}.
+\label{eq:D4}
+\end{equation}
+Here $m:\ell^1(I)\to\ell^1(\Nzero)\subset\ell^2(\Nzero)$ and
+$E:\ell^1(I)\to Y$. Put
+\begin{equation}
+\begin{aligned}
+g&=e_{0,1}-e_{0,2}\in Y^*,&
+h&=Eg=-e_{0,1}-e_{0,2}\in Y,\\
+r(a)&=\pair{h}{a}=-a_{0,1}-a_{0,2},&
+La&=-Ea+r(a)h.
+\end{aligned}
+\label{eq:D5}
+\end{equation}
+\end{definition}
+
+\begin{definition}[The curve of block sums]
+For $s>0$ and $n\ge1$, write
+\begin{equation}
+\omega_s(n)=\frac{\max\{1-sn^{1/4},0\}}{4n},\quad
+W(s)=\sum_{n\ge1}\omega_s(n)^2,\quad
+\sigma=\sum_{n\ge1}\frac1{16n^2}=\frac{\pi^2}{96}.
+\label{eq:D6}
+\end{equation}
+Each $\omega_s$, $s>0$, has finite support. Set
+$\omega_0=(1/(4n))_{n\ge1}\in\ell^2\setminus\ell^1$. Define
+\begin{equation}
+\begin{aligned}
+J&=(-\infty,-1)\cup(1,\infty),\\
+F(t)&=(\sgn t,\omega_{|t|-1})\in\ell^1(\Nzero)\quad(t\in J),\\
+D&=\{a\in\ell^1(I):r(a)\in J,\ ma=F(r(a))\}.
+\end{aligned}
+\label{eq:D7}
+\end{equation}
+Since $|t|-1>0$ for $t\in J$, the definition of $F(t)$ uses only
+$\omega_s$ with $s>0$.
+\end{definition}
+
+\begin{definition}[The two operators on $c_0(I)$]
+The operators and kernel are
+\begin{equation}
+\begin{aligned}
+\gra A&=\{(La,a):a\in D\},\\
+K&=\{k\in\ell^1(I):mk=0,\ r(k)=0\},\\
+Px&=\pair{x}{g}g\quad(x\in Y).
+\end{aligned}
+\label{eq:D8}
+\end{equation}
+For each $t\in J$, the following is one element of $D$, not the entire fibre:
+\begin{equation}
+a^t=-t e_{0,1}+(t+\sgn t)e_{0,3}
+       +\sum_{n\ge1}\omega_{|t|-1}(n)e_{n,1}.
+\label{eq:D9}
+\end{equation}
+\end{definition}
+
+% Coordinate verification follows the definitions in the first example.
+\label{sec:supporting}
+We now verify the assumptions of Theorem~\ref{thm:endpoint-criterion}
+for the maps in Eqs.~\eqref{eq:D4}--\eqref{eq:D9}. The first three
+lemmas supply the pairing identity, the exact primal annihilator and
+the complete parameter fibres.
+
+\begin{lemma}[The coordinate pairing identity]
+\label{lem:coordinate-pairing}
+The maps $m:\ell^1(I)\to\ell^1(\Nzero)\subset\ell^2(\Nzero)$ and
+$E,L:\ell^1(I)\to c_0(I)$ are bounded. For all $a,c\in\ell^1(I)$,
+Eqs.~\eqref{eq:C1} and~\eqref{eq:C2} below hold.
+\end{lemma}
+\begin{proof}
+\label{sec:C1}
+For $a\in\ell^1(I)$, $\|ma\|_1\le\|a\|_1$ and
+$\|Ea\|_\infty\le2\|a\|_1$. If $a$ has finite support, then $Ea$ has
+finite support: only finitely many blocks occur, and within a block no
+output occurs after the last nonzero input coordinate. Approximation by
+finite-support vectors and the bound prove $Ea\in c_0(I)$.
+Thus $L$ also maps $\ell^1(I)$ boundedly into $c_0(I)$.
+
+For $a,c\in\ell^1(I)$, absolute convergence permits exchanging the double
+sums. In each block the diagonal terms and the two triangular
+off-diagonal sums give
+\begin{equation}
+\pair{Ea}{c}+\pair{Ec}{a}
+ =2\sum_b\Big(\sum_j a_{b,j}\Big)\Big(\sum_j c_{b,j}\Big)
+ =2\pair{ma}{mc}_{\ell^2}.
+\label{eq:C1}
+\end{equation}
+The absolute sum of all products is at most $\|a\|_1\|c\|_1$ before the
+factor $2$, so the identity holds for all $a,c\in\ell^1(I)$. Since $mg=0$, $h=Eg$,
+and $r(g)=0$, Eq.~\eqref{eq:C1} implies $\pair{Ea}{g}=-r(a)$.
+Consequently
+\begin{equation}
+\begin{aligned}
+\pair{La}{a}&=r(a)^2-\|ma\|_2^2,&
+\pair{La}{g}&=r(a),\\
+\pair{La-Lc}{a-c}&=(r(a)-r(c))^2-\|ma-mc\|_2^2.
+\end{aligned}
+\label{eq:C2}
+\end{equation}
+\end{proof}
+
+\begin{lemma}[The exact primal annihilator]
+\label{lem:coordinate-annihilator}
+For $K$ in Eq.~\eqref{eq:D8},
+\[
+\{z\in c_0(I):\pair{z}{k}=0\ \text{for every }k\in K\}=\R h.
+\]
+\end{lemma}
+\begin{proof}
+Let $z\in c_0(I)$ annihilate $K$. In a block $b\ge1$, every
+difference $e_{b,j}-e_{b,k}$ is in $K$. Thus $z$ is constant in that
+entire block. Since $z\in c_0(I)$, this constant must be zero. In block
+zero, differences between indices $j,k\ge3$ belong to $K$, so the common
+tail value is also zero. Finally, $g=e_{0,1}-e_{0,2}$ belongs to $K$,
+forcing $z_{0,1}=z_{0,2}$. It follows that $z$ is a scalar multiple of
+$h$. Conversely, $\pair{h}{k}=r(k)=0$ proves that every multiple of $h$
+annihilates $K$.
+\end{proof}
+
+\begin{lemma}[The tail and the complete parameter fibres]
+\label{lem:coordinate-profile}
+The map $s\mapsto\omega_s$ from $(0,\infty)$ to $\ell^2(\N)$
+satisfies Eq.~\eqref{eq:abs-tail} with $\eta=\omega_0$, $S=\sigma<1/8$
+and a Lipschitz constant strictly less than one. For every $t\in J$,
+the label $a^t$ in Eq.~\eqref{eq:D9} belongs to $D$, and its entire
+parameter fibre is $a^t+K$. No $p\in\ell^1(I)$ and $\tau\in[-1,1]$
+satisfy $r(p)=\tau$ and $mp=(\tau,\omega_0)$.
+\end{lemma}
+\begin{proof}
+\label{sec:C2}
+For each $s>0$, $\omega_s(n)=0$ whenever $n\ge s^{-4}$. Also
+$0\le\omega_s(n)\le1/(4n)$. Hence $W(s)\le\sigma<1/8$, and dominated
+convergence in $\ell^2$ gives $\omega_s\to\omega_0$ and $W(s)\to\sigma$
+as $s$ decreases to zero. The comparison vector $\omega_0$ is not in
+$\ell^1$ by divergence of the harmonic series. No endpoint is added to $J$.
+
+Since $v\mapsto\max\{v,0\}$ is $1$-Lipschitz on $\R$,
+\begin{equation}
+\|\omega_s-\omega_q\|_2^2\le c|s-q|^2,\qquad
+c=\frac1{16}\sum_{n\ge1}n^{-3/2}<\frac3{16}<1.
+\label{eq:C3}
+\end{equation}
+The strict numerical bound follows from
+$\sum_{n\ge1}n^{-3/2}<1+\int_1^\infty x^{-3/2}\,dx=3$.
+For $t,u$ on the same branch of $J$, Eq.~\eqref{eq:C3} gives
+$\|F(t)-F(u)\|_2\le|t-u|$. For $t=1+s$ and $u=-1-q$, the squared
+distance is at most $4+c(s-q)^2\le(2+s+q)^2$, and the opposite
+orientation is identical. Thus $F$ is $1$-Lipschitz on all of $J$.
+
+The finitely supported vector $a^t$ in Eq.~\eqref{eq:D9} satisfies $r(a^t)=t$ and
+$ma^t=F(t)$, proving nonemptiness for every actual $t$. The complete
+fibre $\{a:r(a)=t,\ ma=F(t)\}$ is precisely $a^t+K$.
+For every $p\in\ell^1(I)$, the vector $mp$ is in $\ell^1(\Nzero)$.
+Since $\omega_0\notin\ell^1(\N)$, the last assertion follows.
+\end{proof}
+
+% The first counterexample follows its coordinate lemmas.
+\label{sec:c0}
+\label{sec:statements}
+\begin{example}[A counterexample on $c_0$]\label{thm:C}
+Let $I=\Nzero\times\N$ and $Y=c_0(I)$ with its usual supremum norm and
+full dual $Y^*=\ell^1(I)$. Let $A:Y\rightrightarrows Y^*$ and the bounded
+positive rank-one map $P:Y\to Y^*$ be defined by Eq.~\eqref{eq:D8}.
+Then:
+\begin{enumerate}
+\item $A$ and $P$ are maximally monotone in $Y\times Y^*$.
+\item $\dom P=Y$ and $\dom A\ne\varnothing$, so
+$\dom A\cap\operatorname{int}(\dom P)\ne\varnothing$.
+\item Every $(x,a)\in\gra A$ satisfies $\|x\|_\infty>1/2$ and
+$\pair{x}{a}\ge-2\sigma\|x\|_\infty$, where $\sigma=\pi^2/96<1/8$.
+\item Every $(x,b)\in\gra(A+P)$ satisfies
+$\pair{x}{b}>1-\sigma>7/8$.
+\item $(0,0)$ is monotonically related to the entire graph of $A+P$ and
+does not belong to that graph. Hence $A+P$ is not maximally monotone.
+\end{enumerate}
+\end{example}
+\begin{proof}
+Lemmas~\ref{lem:coordinate-pairing}--\ref{lem:coordinate-profile}
+verify every assumption of Theorem~\ref{thm:endpoint-criterion}
+with $X=Y$, $M=m$, $H_0=\ell^2(\N)$, $\omega(s)=\omega_s$,
+$\eta=\omega_0$ and $S=\sigma$. In particular, $g\ne0$ and $mg=0$
+by Eq.~\eqref{eq:D5}, all parameter fibres are present and the
+exact primal annihilator is $\R h$. 
+
+By Eq.~\eqref{eq:C2}, the Lipschitz constraint proves monotonicity
+for every pair of labels in $D$. The full polar formula
+\eqref{eq:abs-entire-polar} and the nonsummability of $\omega_0$
+then give $(\gra A)^\mu=\gra A$: no actual $p\in\ell^1(I)$ can
+satisfy $mp=(\tau,\omega_0)$ for $|\tau|\le1$. This proves
+maximality in $c_0(I)\times\ell^1(I)$.
+
+\label{sec:C5}
+For every $a\in D$, $t=r(a)$ satisfies $|t|>1$. By Eq.~\eqref{eq:C2}
+and $\|g\|_1=2$,
+\begin{equation}
+\|La\|_\infty\ge|t|/2>1/2,\qquad
+\pair{La}{a}=t^2-1-W(|t|-1)>-\sigma.
+\label{eq:C9}
+\end{equation}
+It follows that $A(0)=\varnothing$ and
+$\pair{La}{a}\ge-2\sigma\|La\|_\infty$ for every $a\in D$.
+In particular $\mathcal V(\gra A)\le2\sigma<1/4$.
+Indeed, for each $a\in D$, Eq.~\eqref{eq:C9} gives
+$\max\{0,-\pair{La}{a}\}/\|La\|_\infty
+\le\sigma/\|La\|_\infty<2\sigma$; taking the supremum proves the bound.
+
+\label{sec:C6}
+The rank-one assertion and maximality of $P$ follow from the direct
+proof in Theorem~\ref{thm:endpoint-criterion}. Here $\|g\|_1=2$,
+so $\|P\|\le4$, and $Pe_{0,1}=g\ne0$.
+The actual label $a^2=-2e_{0,1}+3e_{0,3}$ gives
+$La^2=-6e_{0,1}-8e_{0,2}-3e_{0,3}$. Thus
+$\dom A\cap\operatorname{int}(\dom P)\ne\varnothing$, with
+$\operatorname{int}(\dom P)=Y$. Every sum point has the form
+$(La,a+tg)$, $a\in D$ and $t=r(a)$, and
+\begin{equation}
+\pair{-La}{-a-tg}=2t^2-1-W(|t|-1)>1-\sigma>7/8.
+\label{eq:C11}
+\end{equation}
+This proves that $(0,0)$ is related to every sum point. The sum is
+monotone as the sum of two monotone operators; it has no zero primal by
+Eq.~\eqref{eq:C9}. Adding $(0,0)$ is therefore a proper monotone extension.
+
+\end{proof}
+
+% Consequences of the first counterexample.
+\label{sec:domain-comparison}
+The same graph also has a nonconvex domain closure. This consequence
+helps identify the relationship between the construction and claims
+about the domains of arbitrary maximally monotone operators.
+
+% \begin{corollary}\label{prop:domain-gap}
+% For the operator $A$ of Example~\ref{thm:C},
+% $0\in\operatorname{conv}(\dom A)$ and
+% $\operatorname{dist}(0,\dom A)\ge1/2$.
+% In particular, $\overline{\dom A}$ is not convex.
+% \end{corollary}
+% \begin{proof}
+% At $t=2$ and $t=-2$, the tails in Eq.~\eqref{eq:D9} vanish, so that
+% $a^{-2}=-a^2$. Since $L$ is linear, both $La^2$ and $-La^2$ belong
+% to $\dom A$. Their midpoint is zero. Equation~\eqref{eq:C9} gives
+% $\|x\|_\infty>1/2$ for every $x\in\dom A$, and hence the asserted
+% distance bound. A convex closure containing $La^2$ and $-La^2$ would
+% contain zero, contradicting this bound.
+% \end{proof}
+
+
+
+% \begin{remark}[Boundary points and unbounded dual values]
+% \label{sec:structure}
+% The nonsummable limiting block sums are also visible along a sequence
+% of points in $\gra A$ whose primal components converge in norm.
+% Set $t_n^\pm=\pm(1+1/n)$, $a_n^\pm=a^{t_n^\pm}$, and
+% $x_n^\pm=La_n^\pm$. For $t\in J$ and $\epsilon=\sgn t$,
+% direct substitution in Eqs.~\eqref{eq:D4}--\eqref{eq:D9} gives
+% \[
+% (La^t)_{0,1}=-2t-2\epsilon,\qquad
+% (La^t)_{0,2}=-3t-2\epsilon,\qquad
+% (La^t)_{0,3}=-t-\epsilon,
+% \]
+% with the remaining block-zero coordinates zero. In block $b\ge1$,
+% the only nonzero coordinate is $-\omega_{|t|-1}(b)$ at index $1$.
+% Consequently, $x_n^\pm$ converge in the supremum norm to
+% $x_\pm\in c_0(I)$ with block-zero coordinates $\mp(4,5,2)$ and
+% positive-block first coordinates $-1/(4b)$. Indeed, convergence of
+% the tails in $\ell^2$ implies convergence in the supremum norm.
+% The limits satisfy $\pair{x_\pm}{g}=\pm1$ and lie outside $\dom A$.
+% On the other hand,
+% \[
+% \|a_n^\pm\|_1=2(1+1/n)+1+\|\omega_{1/n}\|_1\longrightarrow\infty.
+% \]
+% For each fixed $N$, the sum of the first $N$ tail coordinates tends to
+% $\sum_{b=1}^N1/(4b)$; these partial sums are unbounded. This proves
+% the divergence without asserting convergence of the labels in the dual.
+
+% \end{remark}
+
+\subsection{A counterexample on standard $\ell^1$}
+
+For standard $\ell^1$, let $Z=\ell^1(\N)$ and $Z^*=\ell^\infty(\N)$,
+with their usual pairing. Fix once and for all an enumeration $(q_n)$ of
+all finitely supported rational vectors in the closed unit ball of $Y$.
+\begin{definition}[The operators on standard $\ell^1$]
+Define
+\begin{equation}
+\begin{aligned}
+Qu&=\sum_{n\ge1}u_nq_n,~(Q^*a)_n=\pair{q_n}{a},\\
+\gra T&=\{(u,Q^*a):a\in D,\ Qu=La\},\\
+f&=Q^*g, ~Bu=\pair{u}{f}f.
+\end{aligned}
+\label{eq:D10}
+\end{equation}
+\end{definition}
+We prove that every $x\in Y$ has a preimage $u\in Z$ with
+$Qu=x$ and $\|u\|_1\le2\|x\|_\infty$. No bounded linear
+right inverse or complemented kernel is assumed. The polar for $T$ and
+$T+B$ uses all $\ell^\infty$ labels.
+
+\begin{lemma}[The specified quotient onto $c_0$]
+\label{lem:specified-quotient}
+The map $Q:Z=\ell^1(\N)\to Y=c_0(I)$ of Eq.~\eqref{eq:D10} is a
+bounded surjection with $\|Q\|=1$. Its adjoint satisfies
+$\|Q^*a\|_\infty=\|a\|_1$ for every $a\in\ell^1(I)$.
+For the fixed enumeration $(q_n)$, a map $\mathcal R:Y\to Z$ can be
+specified with
+\[
+Q\mathcal R(x)=x,\qquad \|\mathcal R(x)\|_1\le2\|x\|_\infty.
+\]
+\end{lemma}
+\begin{proof}
+\label{sec:L1}
+Finitely supported rational vectors in the closed unit ball of $Y$ are
+countable and dense in that ball: truncate a $c_0$ vector and approximate
+each retained coordinate by a rational inside $[-1,1]$. Fix an enumeration
+of all these vectors as $(q_n)$. For $u\in Z=\ell^1(\N)$, the sum defining
+$Qu$ converges absolutely in the Banach space $Y$, and
+$\|Qu\|_\infty\le\|u\|_1$. Coordinate unit vectors occur among the $q_n$,
+so $\|Q\|=1$.
+
+For an arbitrary $x\in Y$, set $r_0=x$. If $r_k\ne0$, choose the least index $n_k$ for which the actual
+$q_{n_k}$ satisfies $\|q_{n_k}-r_k/\|r_k\|_\infty\|_\infty<1/2$ and set
+\begin{equation}
+c_k=\|r_k\|_\infty,\qquad r_{k+1}=r_k-c_kq_{n_k}.
+\label{eq:L1}
+\end{equation}
+If a residual vanishes, stop. Otherwise
+$\|r_k\|_\infty\le2^{-k}\|x\|_\infty$ and $\sum_k c_k\le2\|x\|_\infty$.
+Define $u_n=\sum_{k:n_k=n}c_k$. Repeated indices are combined.
+Positivity of the $c_k$ and summability give $u\in\ell^1$ with
+$\|u\|_1=\sum_k c_k\le2\|x\|_\infty$.
+Telescoping Eq.~\eqref{eq:L1}, then absolute convergence under regrouping,
+proves
+\begin{equation}
+Qu=x,\qquad \|u\|_1\le2\|x\|_\infty.
+\label{eq:L2}
+\end{equation}
+For $x=0$, use $u=0$. This proves surjectivity with the asserted lifting
+bound. The construction does not assert that $x\mapsto u$ is linear or
+continuous, nor that $\ker Q$ is complemented.
+
+\label{sec:L2}
+Absolute convergence gives $\pair{u}{Q^*a}=\pair{Qu}{a}$ and
+$\|Q^*a\|_\infty\le\|a\|_1$. For each finite subset of $I$, its sign
+vector for $a$ is a finitely supported rational vector of norm at most
+one and occurs in the enumeration. Taking these finite sign tests proves
+\begin{equation}
+\|Q^*a\|_\infty=\|a\|_1\qquad(a\in\ell^1(I)).
+\label{eq:L3}
+\end{equation}
+In particular, $Q^*$ is injective. The least-index choices in
+Eq.~\eqref{eq:L1} specify
+\[
+\mathcal R(x)=\sum_k c_k e_{n_k},\qquad \mathcal R(0)=0.
+\]
+The series converges in $\ell^1$ by the bound on $\sum_k c_k$,
+and Eq.~\eqref{eq:L2} gives both asserted properties.
+\end{proof}
+
+For this fixed enumeration,
+\[
+\gra T=\{(\mathcal R(La)+v,Q^*a):a\in D,\ v\in\ker Q\}.
+\]
+Indeed, $Q\mathcal R(La)=La$, and any other preimage differs by
+an element of $\ker Q$. Thus the entire graph is specified by
+Eq.~\eqref{eq:D10}; its definition does not select a maximal extension.
+This description asserts neither a bounded linear or continuous right
+inverse nor decidability of membership in the infinite-dimensional graph.
+
+% The second counterexample follows its quotient construction.
+\label{sec:l1}
+\begin{example}[A counterexample on standard $\ell^1$]\label{thm:L}
+On $Z=\ell^1(\N)$ with its usual norm and full dual $Z^*=\ell^\infty(\N)$,
+let $T:Z\rightrightarrows Z^*$ and $B:Z\to Z^*$ be defined by Eq.~\eqref{eq:D10}.
+Then:
+\begin{enumerate}
+\item $T$ is maximally monotone in the full pair $Z\times Z^*$.
+\item $B$ is nonzero, bounded, positive, rank-one, and maximally monotone,
+with $\dom B=Z$. In particular,
+$\dom T\cap\operatorname{int}(\dom B)\ne\varnothing$.
+\item $T(0)=\varnothing$, and every $(u,b)\in\gra T$ satisfies
+$\|u\|_1>1/2$ and $\pair{u}{b}\ge-2\sigma\|u\|_1$.
+Thus $\mathcal V(\gra T)\le2\sigma<1/4$.
+\item Every $(u,c)\in\gra(T+B)$ satisfies
+$\pair{u}{c}>1-\sigma>7/8$.
+\item $(0,0)$ belongs to the full monotone polar of $\gra(T+B)$ and does
+not belong to $\gra(T+B)$. Hence $T+B$ is not maximally monotone.
+\end{enumerate}
+\end{example}
+\begin{proof}
+Lemma~\ref{lem:specified-quotient} gives a surjection $Q$ with the
+bound $\|\mathcal R(x)\|_1\le2\|x\|_\infty$, and Example~\ref{thm:C} proves maximality
+of $A$. Thus Lemma~\ref{lem:surjection-transport} applies to $T$.
+For the specified spaces, we record the full-dual reduction explicitly.
+
+The graph of $T$ is nonempty by
+Eq.~\eqref{eq:L2} and nonemptiness of $D$. It is monotone because the
+bracket of any two graph points $(u,Q^*a)$ and $(v,Q^*c)$ equals
+$\pair{La-Lc}{a-c}$, which is nonnegative by Eq.~\eqref{eq:C2} and the Lipschitz bound.
+
+Let $(v,v^*)$ be a polar point with $v^*$ an arbitrary element of
+$\ell^\infty(\N)$. Fix $(u,Q^*a)\in\gra T$. Since
+$Q(u+\theta k)=Qu$ for $k\in\ker Q$ and $\theta\in\R$,
+every $(u+\theta k,Q^*a)$ also belongs to $\gra T$. Testing these points forces
+$\pair{k}{v^*}=0$ for every such $k$. Define a functional on $Y$ by
+\begin{equation}
+\lambda(x)=\pair{u}{v^*}\quad\text{when }Qu=x.
+\label{eq:L4}
+\end{equation}
+Two preimages differ by $\ker Q$, proving well-definedness. Linear
+combinations of preimages prove linearity. For each $x$, choose the
+preimage in Eq.~\eqref{eq:L2}; then
+$|\lambda(x)|\le2\|v^*\|_\infty\|x\|_\infty$. Thus $\lambda$ belongs to
+the continuous dual of $c_0(I)$.
+
+Explicitly put $p_i=\lambda(e_i)$. Finite sign tests give
+$\sum_{i\in H}|p_i|\le\|\lambda\|$ for every finite $H$, whence
+$p\in\ell^1(I)$. Equality $\lambda(x)=\pair{x}{p}$ holds first for
+finite-support $x$ and then for every $c_0$ vector by density and continuity.
+Therefore $v^*=Q^*p$: the two functionals agree on every $u$ because
+Eq.~\eqref{eq:L4} applies to $Qu$.
+
+Every original $a\in D$ admits a lift $u$ of $La$ by Eq.~\eqref{eq:L2}.
+The full $T$-polar inequality now reads
+\begin{equation}
+\pair{Qv-La}{p-a}\ge0\qquad\forall a\in D.
+\label{eq:L5}
+\end{equation}
+Example~\ref{thm:C} gives $p\in D$ and $Qv=Lp$. Hence
+$(v,v^*)=(v,Q^*p)$ belongs to $\gra T$. This proves maximality in the
+full standard pair $\ell^1\times\ell^\infty$. Membership of $v^*$ in
+$\operatorname{range}(Q^*)$ was derived from the actual kernel tests.
+
+\noindent\textit{The radial bound on every graph value.}
+\label{sec:L3}
+For every $(u,Q^*a)\in\gra T$, with $t=r(a)$,
+\begin{equation}
+\begin{aligned}
+\pair{u}{Q^*a}&=\pair{La}{a}
+ =t^2-1-W(|t|-1)>-\sigma,\\
+\|u\|_1&\ge\|Qu\|_\infty=\|La\|_\infty>1/2.
+\end{aligned}
+\label{eq:L6}
+\end{equation}
+Thus $T(0)=\varnothing$ and $\pair{u}{Q^*a}\ge-2\sigma\|u\|_1$ on
+the entire graph, including every $\ker Q$ translate. Consequently,
+$\mathcal V(\gra T)\le2\sigma<1/4$. No exact equality for this
+norm-dependent supremum is asserted.
+
+\noindent\textit{The rank-one factor and the intersection condition.}
+\label{sec:L4}
+Let $f=Q^*g$. By Eq.~\eqref{eq:L3}, $\|f\|_\infty=\|g\|_1=2$, so $f$
+is nonzero. The map $B:u\mapsto\pair{u}{f}f$ is nonzero, linear, bounded
+with norm at most $4$, positive, and rank-one. The rank-one proof in
+Theorem~\ref{thm:endpoint-criterion}, now testing all $v\in\ell^1$
+and labels in $\ell^\infty$, proves $B$ maximally monotone.
+Its domain is all of $Z$, so $\operatorname{int}(\dom B)=Z$.
+
+The vector $q_\circ=-(3/4)e_{0,1}-e_{0,2}-(3/8)e_{0,3}$ occurs as
+$q_{n_0}$. For $u_\circ=8e_{n_0}$, $Qu_\circ=La^2$.
+Thus $(u_\circ,Q^*a^2)\in\gra T$, and
+$\dom T\cap\operatorname{int}(\dom B)\ne\varnothing$ in the stated
+factor order.
+
+\noindent\textit{A strict polar witness outside the graph.}
+\label{sec:L5}
+For every $(u,Q^*a)\in\gra T$, let $t=r(a)$. Then
+$\pair{u}{f}=\pair{Qu}{g}=\pair{La}{g}=t$.
+Consequently, for every $(u,Q^*a)\in\gra T$,
+\begin{equation}
+\pair{u}{Q^*a+Bu}
+ =2t^2-1-W(|t|-1)>1-\sigma>7/8.
+\label{eq:L7}
+\end{equation}
+The sum is monotone by monotonicity of its factors.
+Equation~\eqref{eq:L7} shows that $(0,0)$ is related to every point of its graph.
+Since $T(0)=\varnothing$, $(0,0)\notin\gra(T+B)$. Adjoining this point
+gives a proper monotone extension, completing the proof of
+Example~\ref{thm:L} with the standard Banach space, full dual, and ordered
+intersection condition. No theorem about sums was used to prove either
+factor maximal.
+\end{proof}
+
+The identity $\pair{u}{Q^*a}=\pair{Qu}{a}$ transfers the pairing
+estimates to $T=Q^*AQ$. Thus the origin in $Z\times Z^*$ is
+monotonically related to $T+B$ and absent from its graph, as the origin
+in $Y\times Y^*$ is for $A+P$. The two examples use the same
+construction, with maximality proved in each full dual pair.
+
+\section{Conclusions}
+\label{sec:conclusion}
+
+We gave counterexamples to Rockafellar's sum conjecture on $c_0$ and
+standard $\ell^1$. Our structural theorem computes the entire monotone
+polar for the stated class of graphs and identifies exactly which
+equations in the original continuous dual determine maximality. In the
+coordinate construction, their solutions over the deleted interval
+would require a nonsummable sequence of block sums. The pairing identity
+proves monotonicity and the finite radial bound, and shows why adding
+a full-domain positive rank-one operator makes the sum nonmaximal.
+The pullback through a bounded surjection gives the second counterexample,
+with maximality verified in the full $\ell^1\times\ell^\infty$ pair.
+
+
+\section*{Use of AI}
+The author supplied earlier constructions and results, involving the sign function and triangular operators, together with obstruction results and a framework for positive rank-one perturbations, and guided their further development to investigate how maximality can fail under addition. Through iterative discussions of these materials, the author and GPT-5.6 Sol developed a general construction theorem characterizing maximality and identifying when an everywhere-defined rank-one monotone perturbation yields a nonmaximal sum.  Under the author's direction, GPT-5.6 Sol worked out the detailed constructions and proof arguments, including the coupling of triangular operators with a Lipschitz curve whose endpoint limits are not representable in the original continuous dual, and the transfer from $c_0$ to standard $\ell^1$. 
+
+
+
+
+
+% and directed the counterexample search and a general construction theorem characterizing maximality and showing when addition of an everywhere-defined rank-one monotone operator produces a nonmaximal sum, and. Under this direction, GPT-5.6 Sol developed explicit formulas and proof arguments for the counterexamples on $c_0$ and standard $\ell^1$, and assisted with literature checks, adversarial review and exposition. 
+
+\begingroup
+\raggedright
+\bibliographystyle{IEEEtran}
+\bibliography{refer}
+\endgroup
+
+\end{document}
