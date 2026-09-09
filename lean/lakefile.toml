@@ -1,0 +1,13 @@
+name = "blockmass_portable"
+version = "0.1.0"
+defaultTargets = ["BlockMass"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "c44e0c8ee63ca166450922a373c7409c5d26b00b"
+
+[[lean_lib]]
+name = "BlockMass"
+roots = ["BlockMassFinite", "BlockMassEndpoint", "BlockMassCurve", "BlockMassTriangular", "BlockMassC0Dual", "BlockMassRankOne", "BlockMassKernel", "BlockMassKernelTests", "BlockMassGraphModel", "BlockMassParameterReturn", "BlockMassWorkBound", "BlockMassSumWitness", "BlockMassPolar", "BlockMassConcreteWitness", "BlockMassCounterexample", "BlockMassPullback", "Audit"]
+
