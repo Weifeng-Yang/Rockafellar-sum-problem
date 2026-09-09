@@ -10,7 +10,7 @@ This package contains Lean proofs for the counterexample on $c_0$ and the genera
 
 The Lean directory contains the formalization of the counterexample on $c_0$ and a general theorem for transferring maximal monotonicity through a bounded linear surjection.
 
-See Lean/README.md for the formalization scope, main files, dependencies and build instructions.
+See lean/README.md for the formalization scope, main files, dependencies and build instructions.
 
 
 ## Reference
