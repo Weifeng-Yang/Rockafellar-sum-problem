@@ -1,4 +1,4 @@
-# Nonmaximal sums of maximally monotone operators
+# Nonmaximal sums of maximally monotone operators under Rockafellar's constraint qualification
 
 ## Introduction
 
