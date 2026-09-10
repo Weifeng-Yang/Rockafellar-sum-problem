@@ -15,4 +15,4 @@ See lean/README.md for the formalization scope, main files, dependencies and bui
 
 ## AI assistance
 
-The author supplied earlier constructions, obstruction results, and a framework for positive rank-one perturbations, and guided their further development through iterative discussions with OpenAI’s GPT-5.6 Sol. These discussions led to the general construction theorem and the detailed counterexample proofs. The model also assisted with Lean formalization of the counterexample on $c_0$ and the general pullback lemma, manuscript preparation, and adversarial checking. 
+The author supplied earlier constructions, obstruction results, and a framework for positive rank-one perturbations, and guided their further development through iterative discussions with GPT-5.6 Sol. These discussions led to the general construction theorem and the detailed counterexample proofs. The model also assisted with Lean formalization of the counterexample on $c_0$ and the general pullback lemma, manuscript preparation, and adversarial checking. 
