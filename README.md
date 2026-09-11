@@ -1,5 +1,7 @@
 # Nonmaximal sums of maximally monotone operators under Rockafellar's constraint qualification
 
+**Code and Lean formalization for [arXiv:2609.10487](https://arxiv.org/abs/2609.10487).**
+
 Preprint: [arXiv:2609.10487](https://arxiv.org/abs/2609.10487).
 
 ## Introduction
