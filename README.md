@@ -7,3 +7,7 @@ Current manuscript revision: 044
 ## Abstract
 
 We construct counterexamples to Rockafellar's sum conjecture in which two maximally monotone operators satisfy the interior-domain condition but their sum is not maximally monotone. We give one counterexample on $c_0$ and another on $\ell^1$ with its usual norm. We establish a general construction theorem that computes the entire monotone polar of a class of graphs, gives a necessary and sufficient condition for their maximal monotonicity, and shows how a positive rank-one perturbation yields a nonmaximal sum under this condition. We verify the theorem's hypotheses and its maximality criterion on $c_0$, thereby obtaining a counterexample to the conjecture. Furthermore, we construct a bounded linear surjection from $\ell^1$ onto $c_0$ and use it to obtain the counterexample on $\ell^1$. Lean formalizations of the $c_0$ counterexample and the pullback lemma are also provided.
+
+## Lean Formalization and Preprint
+
+This repository serves as a synchronized backup of the Overleaf manuscript, primarily preserving its development history and our original mathematical results. For the Lean formalization, the preprint, and the arXiv link, please visit the [RockafellarSumConjecture project repository](https://github.com/Weifeng-Yang/RockafellarSumConjecture).
